@@ -8,9 +8,6 @@ Template: thematic
 Version: 0.1.0
 Tags: thematic, child-theme, responsive, mobile-first, SASS
 */
-/*
-    normalize.css 2012-03-11 - http://github.com/necolas/normalize.css
--------------------------------------------------------------- */
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block;
 }
@@ -207,10 +204,9 @@ table {
   border-spacing: 0;
 }
 
-/*
-    base styles
--------------------------------------------------------------- */
-body, input, textarea {
+body,
+input,
+textarea {
   color: #3d3331;
   font: 1em/1.625em Georgia, Times, "Times New Roman", serif;
 }
@@ -219,9 +215,17 @@ body {
   background: #fefefe;
 }
 
-h1, #blog-title, h2, .entry-title, h3, h4, .widgettitle, h5, h6, .page-title {
-  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+h1, #blog-title,
+h2,
+.entry-title,
+h3,
+h4,
+.widgettitle,
+h5,
+h6,
+.page-title {
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.2);
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
   color: #3d3331;
 }
 
@@ -262,8 +266,6 @@ h6, .page-title {
 }
 
 a {
-  color: #004b91;
-  text-decoration: none;
   -webkit-transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
   -ms-transition-duration: 0.2s;
@@ -274,6 +276,8 @@ a {
   -ms-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
+  color: #004b91;
+  text-decoration: none;
 }
 a:hover {
   color: #da1113;
@@ -285,7 +289,16 @@ a:focus {
   color: #da1113;
 }
 
-p, ul, ol, dd, pre, hr, table, form, address {
+p,
+ul,
+ol,
+dd,
+pre,
+hr,
+table,
+form,
+address,
+embed {
   margin: 0 0 1.625em;
 }
 
@@ -293,7 +306,10 @@ ul {
   list-style: disc;
 }
 
-ul ul, ul ol, ol ul, ol ol {
+ul ul,
+ul ol,
+ol ul,
+ol ol {
   margin-bottom: 0;
 }
 
@@ -345,15 +361,16 @@ tr {
   border-bottom: 1px solid #da1113;
 }
 
-th, td {
+th,
+td {
   padding: .7em 1.25em;
   vertical-align: top;
 }
 
 hr {
   height: 1px;
-  background: #da1113;
   border: 0;
+  background: #da1113;
   color: #da1113;
 }
 
@@ -377,23 +394,22 @@ blockquote p {
   padding-left: 1em;
   border-left: 5px solid #da1113;
 }
-blockquote em, blockquote i, blockquote cite {
+blockquote em,
+blockquote i,
+blockquote cite {
   font-style: normal;
 }
 
-/*
-	content specific styles
---------------------------------------------------------------*/
 #header {
   position: relative;
   z-index: 2;
 }
 
 #branding {
+  position: relative;
   width: 90%;
   margin: 0 auto;
   padding: 1.625em 0;
-  position: relative;
 }
 
 #blog-title {
@@ -413,18 +429,21 @@ blockquote em, blockquote i, blockquote cite {
   text-shadow: none;
 }
 
-.header-aside, .menu-skip {
+.header-aside,
+.menu-skip {
   margin: 1.625em 0 0;
 }
-.header-aside .widgettitle, .menu-skip .widgettitle {
+.header-aside .widgettitle,
+.menu-skip .widgettitle {
   display: none;
 }
-.header-aside ul, .header-aside address, .header-aside form, .menu-skip ul, .menu-skip address, .menu-skip form {
+.header-aside ul,
+.header-aside address,
+.header-aside form,
+.menu-skip ul,
+.menu-skip address,
+.menu-skip form {
   margin: 0;
-}
-
-.skip-link {
-  display: none;
 }
 
 #access {
@@ -434,9 +453,6 @@ blockquote em, blockquote i, blockquote cite {
 }
 
 .menu-button {
-  padding: .65em;
-  background: #010101;
-  color: #fefefe;
   -webkit-transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
   -ms-transition-duration: 0.2s;
@@ -447,6 +463,9 @@ blockquote em, blockquote i, blockquote cite {
   -ms-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
+  padding: .65em;
+  background: #010101;
+  color: #fefefe;
 }
 .menu-button:hover {
   cursor: pointer;
@@ -456,18 +475,14 @@ blockquote em, blockquote i, blockquote cite {
   content: "+";
   padding-left: .5em;
 }
-.menu-button:hover .nav-open .menu-title:after {
-  content: "-";
-  padding-left: .5em;
-}
 .menu-button:hover .icon-bar {
   background: #da1113;
 }
 .menu-button .icon-bar {
+  display: block;
   height: 2px;
   width: 18px;
   margin-top: 2px;
-  display: block;
   background: #fefefe;
   border-radius: 1px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
@@ -475,6 +490,10 @@ blockquote em, blockquote i, blockquote cite {
 
 .nav-open {
   color: #da1113;
+}
+.nav-open .menu-title:after {
+  content: "-";
+  padding-left: .5em;
 }
 .nav-open:hover .menu-title:after {
   content: "-";
@@ -496,17 +515,17 @@ blockquote em, blockquote i, blockquote cite {
   padding: 0;
 }
 .access-nav li {
-  width: 100%;
-  float: left;
   position: relative;
   display: block;
+  width: 100%;
+  float: left;
+  border-bottom: 1px solid #f1f1f1;
   list-style: none;
   background: #ddd;
-  border-bottom: 1px solid #f1f1f1;
 }
 .access-nav li a {
-  padding: .5em .35em .5em 1em;
   display: block;
+  padding: .5em .35em .5em 1em;
   color: #3d3331;
 }
 .access-nav li a:hover {
@@ -521,9 +540,9 @@ blockquote em, blockquote i, blockquote cite {
 }
 
 #main {
+  position: relative;
   width: 90%;
   margin: 0 auto;
-  position: relative;
   clear: both;
 }
 
@@ -579,10 +598,6 @@ blockquote em, blockquote i, blockquote cite {
   cursor: text;
 }
 
-.entry-content embed {
-  margin: 0 0 1.625em;
-}
-
 .entry-utility {
   clear: both;
   font-size: 90%;
@@ -614,7 +629,8 @@ blockquote em, blockquote i, blockquote cite {
   float: left;
 }
 
-#links-page, #archives-page {
+#links-page,
+#archives-page {
   list-style: none;
   overflow: hidden;
 }
@@ -628,7 +644,6 @@ blockquote em, blockquote i, blockquote cite {
   float: left;
 }
 
-/* images */
 .entry-content .wp-post-image {
   float: right;
   margin: 0 0 20px 1.625em;
@@ -640,18 +655,21 @@ blockquote em, blockquote i, blockquote cite {
   margin: 0 0 1.625em;
 }
 
-.alignleft, img.alignleft {
+.alignleft,
+img.alignleft {
   float: left;
   margin-right: 20px;
 }
 
-.alignright, img.alignright {
+.alignright,
+img.alignright {
   display: block;
   float: right;
   margin-left: 20px;
 }
 
-.aligncenter, img.aligncenter {
+.aligncenter,
+img.aligncenter {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -692,7 +710,8 @@ blockquote em, blockquote i, blockquote cite {
   list-style: none;
   overflow: hidden;
 }
-.gallery .gallery-item .img, .gallery .gallery-item img.thumbnail {
+.gallery .gallery-item .img,
+.gallery .gallery-item img.thumbnail {
   height: auto;
   max-width: 89%;
   margin: 0 auto;
@@ -714,7 +733,6 @@ blockquote em, blockquote i, blockquote cite {
   margin: 0 !important;
 }
 
-/* comments */
 #comments {
   clear: both;
 }
@@ -730,20 +748,20 @@ blockquote em, blockquote i, blockquote cite {
   padding: 0;
 }
 #comments-list ul li {
-  border: none;
   margin: 0 0 1.625em;
+  border: none;
   background: rgba(0, 0, 0, 0.05);
 }
 #comments-list ol {
+  margin: 0 0 1.625em;
   border: 1px solid #da1113;
   border-bottom: none;
-  margin: 0 0 1.625em;
 }
 #comments-list li {
-  background: #fafafa;
-  border-bottom: 1px solid #da1113;
-  padding: 1.625em 1.5em 0;
   position: relative;
+  padding: 1.625em 1.5em 0;
+  border-bottom: 1px solid #da1113;
+  background: #fafafa;
 }
 #comments-list li .avatar {
   position: absolute;
@@ -766,13 +784,13 @@ blockquote em, blockquote i, blockquote cite {
   padding: 0 0 9px 46px;
 }
 #comments-list #respond {
-  border-bottom: 1px solid #da1113;
   margin: 0 0 1.625em;
   padding: 1.625em 1.5em;
+  border-bottom: 1px solid #da1113;
 }
 #comments-list ul #respond {
-  border: 1px solid #da1113;
   margin: 0;
+  border: 1px solid #da1113;
 }
 
 .comment-reply-link {
@@ -786,8 +804,8 @@ blockquote em, blockquote i, blockquote cite {
 }
 
 #respond {
-  margin-bottom: 1.625em;
   position: relative;
+  margin-bottom: 1.625em;
 }
 
 #cancel-comment-reply {
@@ -797,8 +815,8 @@ blockquote em, blockquote i, blockquote cite {
 }
 
 .form-section input {
-  margin: 0 0 1.625em;
   width: 98%;
+  margin: 0 0 1.625em;
 }
 .form-section textarea {
   width: 98%;
@@ -820,20 +838,25 @@ blockquote em, blockquote i, blockquote cite {
   text-align: right;
 }
 
-/* navigations */
-.page-link, .comment-navigation {
+.page-link,
+.comment-navigation {
   margin: 0 0 1.625em;
   font-weight: bold;
   word-spacing: 0.5em;
 }
-.page-link a, .comment-navigation a {
-  background: rgba(0, 0, 0, 0.1);
+.page-link a,
+.comment-navigation a {
   padding: 0.4em 0.65em;
+  background: rgba(0, 0, 0, 0.1);
 }
-.page-link a:hover, .comment-navigation a:hover {
+.page-link a:hover,
+.comment-navigation a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
-.page-link a, .page-link span, .comment-navigation a, .comment-navigation span {
+.page-link a,
+.page-link span,
+.comment-navigation a,
+.comment-navigation span {
   margin-right: 0.5em;
 }
 
@@ -841,16 +864,13 @@ blockquote em, blockquote i, blockquote cite {
   margin-top: 1.625em;
 }
 
-.button, input[type="submit"] {
+.button,
+input[type="submit"] {
+  position: relative;
   display: inline-block;
   float: right;
   margin: 0 5px;
   padding: 7px 10px;
-  position: relative;
-  line-height: 18px;
-  color: #fefefe;
-  text-align: center;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
   vertical-align: middle;
   cursor: pointer;
   border: 1px solid #cccccc;
@@ -865,15 +885,19 @@ blockquote em, blockquote i, blockquote cite {
   background-image: -ms-linear-gradient(#333333, #222222);
   background-image: linear-gradient(#333333, #222222);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.075);
+  line-height: 18px;
+  color: #fefefe;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
 }
 
-.button:hover, input[type="submit"]:hover {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 2px 2px 3px rgba(0, 0, 0, 0.3);
+.button:hover,
+input[type="submit"]:hover {
   top: -1px;
   left: -1px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 2px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* asides, sidebars & widget-ready areas */
 .aside {
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -898,10 +922,12 @@ blockquote em, blockquote i, blockquote cite {
 .aside table {
   border: none;
 }
-.aside thead, .aside tbody {
+.aside thead,
+.aside tbody {
   border: 1px solid #da1113;
 }
-.aside th, .aside td {
+.aside th,
+.aside td {
   border-right: 1px solid #da1113;
   padding: .15em .5em;
 }
@@ -912,8 +938,7 @@ blockquote em, blockquote i, blockquote cite {
   border-color: transparent;
 }
 .aside #searchform input {
-  max-width: 98%;
-  width: 100%;
+  width: 98%;
 }
 
 .widget_tag_cloud {
@@ -966,34 +991,38 @@ blockquote em, blockquote i, blockquote cite {
 }
 
 #siteinfo {
-  clear: both;
   width: 90%;
   margin: 0 auto;
   padding: 1.625em 0;
+  clear: both;
 }
 
-/* page templates */
 .page-template-template-page-fullwidth-php #container {
   width: 100%;
   margin-right: 0;
 }
-.page-template-template-page-fullwidth-php #content, .page-template-template-page-fullwidth-php #comments {
+.page-template-template-page-fullwidth-php #content,
+.page-template-template-page-fullwidth-php #comments {
   width: 100%;
 }
 
-/* attachments */
-.attachment-jpeg #content, .attachment-jpeg #container, .attachment-png #content, .attachment-png #container {
+.attachment-jpeg #content,
+.attachment-jpeg #container,
+.attachment-png #content,
+.attachment-png #container {
   width: 100%;
   margin: 0;
 }
-.attachment-jpeg .main-aside, .attachment-png .main-aside {
+.attachment-jpeg .main-aside,
+.attachment-png .main-aside {
   display: none;
 }
 
-/*
-    internet explorer specific
--------------------------------------------------------------- */
-.lt-ie9 #branding, .lt-ie9 #access, .lt-ie9 #main, .lt-ie9 #subsidiary, .lt-ie9 #siteinfo {
+.lt-ie9 #branding,
+.lt-ie9 #access,
+.lt-ie9 #main,
+.lt-ie9 #subsidiary,
+.lt-ie9 #siteinfo {
   width: 640px;
   padding-left: 20px;
   padding-right: 20px;
@@ -1017,8 +1046,8 @@ img#wpstats {
 
 .flexslider {
   margin-bottom: 1.625em;
-  background: none;
   border: none;
+  background: none;
 }
 .flexslider .entry-title {
   display: none;
@@ -1060,33 +1089,38 @@ img#wpstats {
 }
 @media only screen and (min-width: 768px) {
   blockquote.left {
+    width: 33%;
     float: left;
     margin-left: 0;
     margin-right: 1em;
-    width: 33%;
   }
   blockquote.right {
+    width: 33%;
     float: right;
     margin-left: 1em;
     margin-right: 0;
-    width: 33%;
   }
 
   #wrapper {
     background: url(images/bg-tiles.png);
   }
 
-  #branding, #access, #main, #siteinfo, .sub-wrapper {
+  #branding,
+  #access,
+  #main,
+  #siteinfo,
+  .sub-wrapper {
     max-width: 1140px;
   }
 
   .header-aside {
-    margin: 0;
     position: absolute;
     top: 1.625em;
     right: 0;
+    margin: 0;
   }
-  .header-aside ul, .header-aside address {
+  .header-aside ul,
+  .header-aside address {
     text-align: right;
   }
 
@@ -1104,8 +1138,8 @@ img#wpstats {
   }
   .access-nav li {
     width: auto;
-    padding: 0;
     margin-right: .5em;
+    padding: 0;
     border-bottom: none;
     background: none;
   }
@@ -1124,23 +1158,26 @@ img#wpstats {
   }
 
   #container {
-    width: 65.4%;
     float: left;
+    width: 65.4%;
     margin-right: 3.8%;
   }
 
-  .hentry, .error404, .noresults {
+  .hentry,
+  .error404,
+  .noresults {
     padding: 0 0 1.625em 2em;
   }
 
   .entry-utility ul {
-    width: 50%;
     float: left;
+    width: 50%;
   }
 
-  .main-aside, .header-aside {
-    width: 30.8%;
+  .main-aside,
+  .header-aside {
     float: right;
+    width: 30.8%;
     clear: right;
   }
 
@@ -1151,7 +1188,8 @@ img#wpstats {
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
   }
 
-  #primary > ul, #secondary > ul {
+  #primary > ul,
+  #secondary > ul {
     margin-right: 2em;
     padding: 0 1em 1.625em;
   }
@@ -1166,8 +1204,8 @@ img#wpstats {
     padding: 0 2em;
   }
   #subsidiary .aside {
-    width: 30.8%;
     float: left;
+    width: 30.8%;
     margin: 0 3.8% 0 0;
   }
   #subsidiary #third {
@@ -1178,7 +1216,9 @@ img#wpstats {
     margin: 0 0 1.625em 2em;
   }
 
-  .archive .title-wrap, .attachment .title-wrap, .search .title-wrap {
+  .archive .title-wrap,
+  .attachment .title-wrap,
+  .search .title-wrap {
     padding: 0 0 0 2em;
   }
 
@@ -1212,7 +1252,9 @@ img#wpstats {
     margin: 0 0 1.625em;
   }
 
-  .page-template-template-page-fullwidth-php #comments, .attachment-jpeg #comments, .attachment-png #comments {
+  .page-template-template-page-fullwidth-php #comments,
+  .attachment-jpeg #comments,
+  .attachment-png #comments {
     width: 65.4%;
   }
 
@@ -1220,9 +1262,6 @@ img#wpstats {
     margin: 0 0 3.25em 2em;
   }
 }
-/*
-    html5boilerplate non-semantic helper classes
--------------------------------------------------------------- */
 .ir {
   border: 0;
   font: 0/0 a;
@@ -1273,9 +1312,6 @@ img#wpstats {
   *zoom: 1;
 }
 
-/*
-    html5boilerplate print styles
--------------------------------------------------------------- */
 @media print {
   * {
     background: transparent !important;
@@ -1330,7 +1366,10 @@ img#wpstats {
     page-break-after: avoid;
   }
 
-  .aside, #access .menu, .navigation {
+  .aside,
+  #access
+  .menu,
+  .navigation {
     display: none;
   }
 }
