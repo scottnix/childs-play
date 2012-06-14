@@ -343,7 +343,7 @@ add_action('wp_footer', 'snix_google_analytics');
 */
 
 
-
+// example of changing up the display of the entry-utility for a different look
 function childtheme_override_postfooter() {
 
         $post_type = get_post_type();
@@ -366,7 +366,9 @@ function childtheme_override_postfooter() {
             $postfooter .= '<ul class="sub-utilities">';
             $postfooter .= '<li>' . thematic_postfooter_postcategory() . '</li>';
             $postfooter .= '<li>' . thematic_postfooter_posttags() . '</li>';
-            $postfooter .= '<li>' . thematic_postfooter_posteditlink() . '</li>';
+                if ( is_user_logged_in() ) {
+                $postfooter .= '<li>' . thematic_postfooter_posteditlink() . '</li>';
+                }
             $postfooter .= '</ul>';
             $postfooter .= "\n\n\t\t\t\t\t</div><!-- .entry-utility -->\n";
         }
