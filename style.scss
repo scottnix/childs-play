@@ -38,6 +38,8 @@ $box-transparency: rgba(black, 0.2);
 // ==========================================================================
 
 @import 'css/normalize';
+// better box model fix, http://paulirish.com/2012/box-sizing-border-box-ftw/
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 // ==========================================================================
 // base styles
@@ -526,10 +528,10 @@ img.aligncenter {
 }
 .form-section {
     input {
-        width: 98%;
+        width: 100%;
         margin: 0 0 1.625em;
     }
-    textarea { width: 98%; }
+    textarea { width: 100%; }
 }
 #form-allowed-tags {
     font-size: 90%;
@@ -622,9 +624,7 @@ input[type="submit"]:hover {
         tr { border: none; }
         td { border-color: transparent; }
     }
-    #searchform input {
-        width: 98%;
-    }
+    #searchform input { width: 100%; }
 }
 .widget_tag_cloud { margin: 0 0 1.625em; }
 #searchsubmit { display: none; }
@@ -678,7 +678,8 @@ input[type="submit"]:hover {
 .attachment-png {
     #content,
     #container {
-        width: 100%; margin: 0;
+        width: 100%;
+        margin: 0;
     }
     .main-aside { display: none; }
 }
@@ -705,9 +706,8 @@ input[type="submit"]:hover {
     .menu-button { padding-bottom: 1em; }
 }
 
-/*
-    plugin specific
--------------------------------------------------------------- */
+// plugin specific
+// ==========================================================================
 
 // wp stats smiley
 img#wpstats {
@@ -734,12 +734,11 @@ img#wpstats {
     background: #010101;
     font-size: 1em;
     a { color: $menu-link-color; }
- }
+}
 
-
-/*
-    media queries
--------------------------------------------------------------- */
+// ==========================================================================
+// media queries
+// ==========================================================================
 
 @media only screen and (min-width: 400px) {
 
@@ -862,7 +861,10 @@ img#wpstats {
         .meta-nav { font-style: normal; }
     }
     .nav-previous { float: left; }
-    .nav-next { float: right; text-align: right; }
+    .nav-next {
+        float: right;
+        text-align: right;
+    }
     #comments { padding: 0 0 0 2em; }
     #siteinfo p { padding: 0 2em; }
     .content-column {

@@ -204,6 +204,12 @@ table {
   border-spacing: 0;
 }
 
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body,
 input,
 textarea {
@@ -663,7 +669,6 @@ img.alignleft {
 
 .alignright,
 img.alignright {
-  display: block;
   float: right;
   margin-left: 20px;
 }
@@ -815,11 +820,11 @@ img.aligncenter {
 }
 
 .form-section input {
-  width: 98%;
+  width: 100%;
   margin: 0 0 1.625em;
 }
 .form-section textarea {
-  width: 98%;
+  width: 100%;
 }
 
 #form-allowed-tags {
@@ -938,7 +943,7 @@ input[type="submit"]:hover {
   border-color: transparent;
 }
 .aside #searchform input {
-  width: 98%;
+  width: 100%;
 }
 
 .widget_tag_cloud {
@@ -947,12 +952,6 @@ input[type="submit"]:hover {
 
 #searchsubmit {
   display: none;
-}
-
-.main-aside {
-  width: 100%;
-  float: none;
-  clear: both;
 }
 
 #primary {
@@ -1035,9 +1034,6 @@ input[type="submit"]:hover {
   padding-bottom: 1em;
 }
 
-/*
-    plugin specific
--------------------------------------------------------------- */
 img#wpstats {
   width: 0;
   height: 0;
@@ -1079,9 +1075,6 @@ img#wpstats {
   color: #fefefe;
 }
 
-/*
-    media queries
--------------------------------------------------------------- */
 @media only screen and (max-width: 600px) {
   .flexslider .slides img {
     height: 300px;
