@@ -24,7 +24,10 @@ $helper-link: #7f7f7f;
 $link-color: #004b91;
 $link-hover: #da1113;
 $link-focus: #da1113;
+$link-current-page: #da1113;
 $menu-background: #010101;
+$menu-dropdown-background: #ddd;
+$menu-border: #f1f1f1;
 $menu-link-color: #fefefe;
 $menu-link-hover: #da1113;
 $selection-color: #fe57a1; // html5boilerplate pink lives on!
@@ -271,9 +274,9 @@ blockquote {
         display: block;
         width: 100%;
         float: left;
-        border-bottom: 1px solid #f1f1f1;
+        border-bottom: 1px solid $menu-border;
         list-style: none;
-        background: #ddd;
+        background: $menu-dropdown-background;
         a {
             display: block;
             padding: .5em .35em .5em 1em;
@@ -283,7 +286,6 @@ blockquote {
                 color: $link-hover;
             }
         }
-        &:last-child { border: none; }
     }
 }
 #main {
@@ -750,20 +752,34 @@ img#wpstats {
 @media only screen and (max-width: 768px) {
     //make sure children are indented properly in shrinked navigation
     .access-nav {
-        li ul li {
-            border-bottom: none;
-            a {
-                padding-left: 2em;
-                &:hover {
-                    padding-left: 2.5em;
-                }
+        .current-menu-item a,
+        .current-menu-parent a,
+        .current-menu-ancestor a,
+        .current-post-ancestor a,
+        .current_page_item a,
+        .current_page_ancestor a,
+        .current_page_parent a {
+            color: $link-current-page !important;
+        }
+        li {
+            a:last-child {
+                border: none;
             }
             ul li {
                 border-bottom: none;
                 a {
-                    padding-left: 3em;
+                    padding-left: 2em;
                     &:hover {
-                        padding-left: 3.5em;
+                        padding-left: 2.5em;
+                    }
+                }
+                ul li {
+                    border-bottom: none;
+                    a {
+                        padding-left: 3em;
+                        &:hover {
+                            padding-left: 3.5em;
+                        }
                     }
                 }
             }
@@ -921,7 +937,7 @@ img#wpstats {
         .current_page_item a,
         .current_page_ancestor a,
         .current_page_parent a {
-            border-bottom-color: #fff;
+            color: $link-current-page !important;
         }
         li {
             background: $menu-background;
@@ -934,9 +950,27 @@ img#wpstats {
             }
 
             li {
-                background: $menu-background;
+                background: $menu-dropdown-background;
+                border-bottom: 1px solid $menu-border;
+                //border-right: 1px solid $menu-border;
+                a {
+                    &, &:visited {
+                        /* visited pseudo selector so IE6 applies text colour*/
+                        color: $text-color !important;
+                    }
+                    &:focus, &:hover, &:active {
+                        color: $link-hover !important;
+                        background: $menu-dropdown-background;
+                        outline: 0;
+                    }
+                }
+                &:hover, &.sfHover {
+                    background: $menu-dropdown-background;
+                }
                 li {
-                    background: $menu-background;
+                    background: $menu-dropdown-background;
+                    padding-left: 1px;
+                    border-left: 1px solid $menu-border;
                 }
             }
         }
@@ -946,7 +980,7 @@ img#wpstats {
                 margin-top: 0;
             }
             a {
-                background: $menu-background;
+                background: $menu-dropdown-background;
                 border-bottom: none;
             }
         }

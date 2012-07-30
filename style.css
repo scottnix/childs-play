@@ -527,7 +527,7 @@ blockquote cite {
   float: left;
   border-bottom: 1px solid #f1f1f1;
   list-style: none;
-  background: #ddd;
+  background: #dddddd;
 }
 .access-nav li a {
   display: block;
@@ -537,9 +537,6 @@ blockquote cite {
 .access-nav li a:hover {
   padding-left: 1.5em;
   color: #da1113;
-}
-.access-nav li:last-child {
-  border: none;
 }
 
 #main {
@@ -1078,6 +1075,18 @@ img#wpstats {
   }
 }
 @media only screen and (max-width: 768px) {
+  .access-nav .current-menu-item a,
+  .access-nav .current-menu-parent a,
+  .access-nav .current-menu-ancestor a,
+  .access-nav .current-post-ancestor a,
+  .access-nav .current_page_item a,
+  .access-nav .current_page_ancestor a,
+  .access-nav .current_page_parent a {
+    color: #da1113 !important;
+  }
+  .access-nav li a:last-child {
+    border: none;
+  }
   .access-nav li ul li {
     border-bottom: none;
   }
@@ -1155,6 +1164,7 @@ img#wpstats {
   }
   .access-nav li a {
     padding: 0.35em .5em;
+    color: #fefefe;
   }
   .access-nav li a:hover {
     padding: 0.35em .5em;
@@ -1243,7 +1253,7 @@ img#wpstats {
   .sf-menu .current_page_item a,
   .sf-menu .current_page_ancestor a,
   .sf-menu .current_page_parent a {
-    border-bottom-color: #fff;
+    color: #da1113 !important;
   }
   .sf-menu li {
     background: #010101;
@@ -1257,10 +1267,25 @@ img#wpstats {
     /* overriding essential styles */
   }
   .sf-menu li li {
-    background: #010101;
+    background: #dddddd;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  .sf-menu li li a, .sf-menu li li a:visited {
+    /* visited pseudo selector so IE6 applies text colour*/
+    color: #3d3331 !important;
+  }
+  .sf-menu li li a:focus, .sf-menu li li a:hover, .sf-menu li li a:active {
+    color: #da1113 !important;
+    background: #dddddd;
+    outline: 0;
+  }
+  .sf-menu li li:hover, .sf-menu li li.sfHover {
+    background: #dddddd;
   }
   .sf-menu li li li {
-    background: #010101;
+    background: #dddddd;
+    padding-left: 1px;
+    border-left: 1px solid #f1f1f1;
   }
   .sf-menu ul {
     margin-top: -3px;
@@ -1269,7 +1294,7 @@ img#wpstats {
     margin-top: 0;
   }
   .sf-menu ul a {
-    background: #010101;
+    background: #dddddd;
     border-bottom: none;
   }
 
