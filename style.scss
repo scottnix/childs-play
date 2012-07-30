@@ -284,7 +284,6 @@ blockquote {
             }
         }
         &:last-child { border: none; }
-        ul { display: none; }
     }
 }
 #main {
@@ -748,6 +747,30 @@ img#wpstats {
     .flexslider .slides img { height:300px; }
 }
 
+@media only screen and (max-width: 768px) {
+    //make sure children are indented properly in shrinked navigation
+    .access-nav {
+        li ul li {
+            border-bottom: none;
+            a {
+                padding-left: 2em;
+                &:hover {
+                    padding-left: 2.5em;
+                }
+            }
+            ul li {
+                border-bottom: none;
+                a {
+                    padding-left: 3em;
+                    &:hover {
+                        padding-left: 3.5em;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media only screen and (min-width: 768px) {
     blockquote {
         &.left {
@@ -798,6 +821,139 @@ img#wpstats {
                 &:hover { padding: 0.35em .5em; }
             }
         }
+    }
+
+    /**
+     * superfish menu essential styles
+     */
+    .sf-menu {
+        line-height: 1.0;
+        &, * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a {
+            display: block;
+            position: relative;
+
+        }
+        ul {
+            position: absolute;
+            top: -999em;
+            width: 10em; /* left offset of submenus need to match (see below) */
+            li {
+                width: 100%;
+            }
+        }
+        li {
+            float: left;
+            position: relative;
+            &:hover, {
+                visibility: inherit; /* fixes IE7 'sticky bug' */
+            }
+            &:hover, &.sfHover {
+                ul {
+                    left: 0;
+                    top: 2.5em; /* match top ul list item height */
+                    z-index: 99;
+                }
+            }
+        }
+    }
+
+    ul.sf-menu {
+        li {
+            &:hover, &.sfHover {
+                li {
+                    ul {
+                        top: -999em;
+                    }
+                }
+            }
+            li {
+                &:hover, &.sfHover {
+                    ul {
+                        left: 10em; /* match ul width */
+                        top: 0;
+                    }
+                    li {
+                        ul {
+                            top: -999em;
+                        }
+                    }
+                }
+                li {
+                    &:hover, &.sfHover {
+                        ul {
+                            left: 10em; /* match ul width */
+                            top: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * THEMATIC SKIN
+     */
+    .sf-menu {
+        float: left;
+        margin-left: 1px;
+        a {
+            text-decoration: none;
+            margin-left: -1px;
+            &, &:visited {
+            /* visited pseudo selector so IE6 applies text colour*/
+                color: $menu-link-color !important;
+            }
+            &:focus, &:hover, &:active {
+                color: $link-hover !important;
+                background: $menu-background;
+                outline: 0;
+            }
+        }
+        .current-menu-item a,
+        .current-menu-parent a,
+        .current-menu-ancestor a,
+        .current-post-ancestor a,
+        .current_page_item a,
+        .current_page_ancestor a,
+        .current_page_parent a {
+            border-bottom-color: #fff;
+        }
+        li {
+            background: $menu-background;
+            &:hover, &.sfHover {
+                background: $menu-background;
+                outline: 0;
+                ul {
+                    top: 32px; /* overriding essential styles */
+                }
+            }
+
+            li {
+                background: $menu-background;
+                li {
+                    background: $menu-background;
+                }
+            }
+        }
+        ul {
+            margin-top: -3px;
+            ul {
+                margin-top: 0;
+            }
+            a {
+                background: $menu-background;
+                border-bottom: none;
+            }
+        }
+    }
+
+    .ie7 .sf-menu a {
+        width: 100%;
     }
     #main {
         padding: 1.625em 0 0;

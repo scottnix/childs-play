@@ -90,7 +90,7 @@ function childtheme_script_manager() {
     // registers modernizr script, stylesheet local path, no dependency, no version, loads in header
     wp_register_script('modernizr-js', get_stylesheet_directory_uri() . '/js/modernizr.js', false, false, false);
     // registers dropdowns script, local stylesheet path, yes dependency is jquery, no version, loads in footer
-    // wp_register_script('dropdowns-js', get_bloginfo('stylesheet_directory') . '/js/superfish-dropdowns.js', array('jquery'), false, true);
+    wp_register_script('dropdowns-js', get_bloginfo('stylesheet_directory') . '/js/superfish-dropdowns.js', array('jquery'), false, true);
     // registers fitvids script, local stylesheet path, yes dependency is jquery, no version, loads in footer
     wp_register_script('fitvids-js', get_stylesheet_directory_uri() . '/js/jquery.fitvids.js', array('jquery'), false, true);
     // registers misc custom script, local stylesheet path, yes dependency is jquery, no version, loads in footer
@@ -103,6 +103,7 @@ function childtheme_script_manager() {
     // enqueue the scripts for use in theme
     wp_enqueue_script ('modernizr-js');
     wp_enqueue_script ('fitvids-js');
+    wp_enqueue_script ('dropdowns-js');
 
         if ( is_front_page() ) {
             wp_enqueue_script ('flexslider-js');
