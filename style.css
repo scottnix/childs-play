@@ -214,7 +214,7 @@ body,
 input,
 textarea {
   color: #3d3331;
-  font: 1em/1.625em Georgia, Times, "Times New Roman", serif;
+  font: 1em/1.625 Georgia, Times, "Times New Roman", serif;
 }
 
 body {
@@ -272,14 +272,12 @@ h6, .page-title {
 }
 
 a {
-  -webkit-transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
-  -ms-transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
   -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
-  -webkit-transition-timing-function: ease-in-out;
   -moz-transition-timing-function: ease-in-out;
-  -ms-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
   color: #004b91;
@@ -431,7 +429,7 @@ blockquote cite {
 
 #blog-description {
   margin: 0;
-  font: 1em/1.625em Georgia, Times, "Times New Roman", serif;
+  font: 1em/1.625 Georgia, Times, "Times New Roman", serif;
   text-shadow: none;
 }
 
@@ -459,14 +457,12 @@ blockquote cite {
 }
 
 .menu-button {
-  -webkit-transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
-  -ms-transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
   -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
-  -webkit-transition-timing-function: ease-in-out;
   -moz-transition-timing-function: ease-in-out;
-  -ms-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
   padding: .65em;
@@ -715,10 +711,9 @@ img.aligncenter {
   list-style: none;
   overflow: hidden;
 }
-.gallery .gallery-item .img,
-.gallery .gallery-item img.thumbnail {
+.gallery .gallery-item img {
   height: auto;
-  max-width: 89%;
+  max-width: 90%;
   margin: 0 auto;
   padding: 1%;
   border: none !important;

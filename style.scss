@@ -12,7 +12,7 @@ Tags: thematic, child-theme, responsive, mobile-first, SASS
 @import 'css/base.scss';
 
 $background-color: #fefefe;
-$body-font-defaults: 1em/1.625em Georgia, Times, "Times New Roman", serif;
+$body-font-defaults: 1em/1.625 Georgia, Times, "Times New Roman", serif;
 $text-color: #3d3331;
 $header-font: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
 $header-color: #3d3331;
@@ -426,18 +426,17 @@ img.aligncenter {
         clear: both;
         overflow: hidden;
     }
-    .gallery-item {
+    .gallery-item { 
         margin: 0;
         padding: 0;
         list-style: none;
         overflow: hidden;
-        .img,
-        img.thumbnail {
+        img {
             height: auto;
-            max-width: 89%;
+            max-width: 90%;
             margin: 0 auto;
             padding: 1%;
-            border: none !important;
+            border: none !important; 
         }
     }
 }
