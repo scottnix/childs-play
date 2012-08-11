@@ -312,7 +312,6 @@ blockquote {
 }
 .entry-title {
     @extend h2;
-    margin-bottom: 0;
     a { color: $header-color;
         &:hover { color: $link-hover; }
     }
