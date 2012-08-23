@@ -194,7 +194,7 @@ function childtheme_override_page_title() {
 
 
 
-// add favicon to site, add 16x16 "favicon.ico" image to child themes main folder
+// add favicon to site, add 16x16 or 32x32 "favicon.ico" image to child themes main folder
 function childtheme_add_favicon() { ?>
 <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/favicon.ico" />
 <?php }
@@ -244,9 +244,9 @@ add_filter('thematic_widgetized_areas', 'childtheme_add_header_widget');
 // set structure for the header aside widget
 function childtheme_header_aside_widget() {
     if ( is_active_sidebar('header-aside-widget') ) {
-        echo "\n".'<div id="header-widget" class="aside header-aside">' . "\n" . "\t" . '<ul class="xoxo">' . "\n";
+        echo "\n".'<aside id="header-widget" class="aside header-aside">' . "\n" . "\t" . '<ul class="xoxo">' . "\n";
         dynamic_sidebar('header-aside-widget');
-        echo "\n" . "\t" . '</ul>' ."\n" . '</div><!-- #header-widget .header-aside -->' . "\n";
+        echo "\n" . "\t" . '</ul>' ."\n" . '</aside><!-- #header-widget .header-aside -->' . "\n";
     }
 }
 
@@ -277,7 +277,7 @@ add_filter('thematic_widgetized_areas', 'childtheme_add_subsidiary', 50);
 // this is modified from the original by adding the .sub-wrapper, super hacky!
 function childtheme_4th_subsidiary_aside() {
     if ( is_active_sidebar('4th-subsidiary-aside') ) {
-        echo "\n".'<div id="fourth" class="aside footer-aside">' . "\n" . "\t" . '<ul class="xoxo">' . "\n";
+        echo "\n".'<aside id="fourth" class="aside footer-aside">' . "\n" . "\t" . '<ul class="xoxo">' . "\n";
         dynamic_sidebar('4th-subsidiary-aside');
         echo "\n" . "\t" . '</ul>' ."\n" . '</div><!-- #fourth .footer-aside -->' . "\n";
     }
@@ -424,10 +424,10 @@ function childtheme_override_postfooter_posttags() {
 
 
 // post thumbnail sizing for the flexslider
-// images need to be the same size, 750 is about the max visible width
+// images need to be the same size, 750 is about the max visible width, unless you use full page
 add_theme_support( 'post-thumbnails' );
 if ( function_exists( 'add_image_size' ) ) {
-    add_image_size( 'featured-slider', 750, 425 ); // unlimited width and height
+    add_image_size( 'featured-slider', 750, 425 ); // width and height
 }
 
 // add flexslider to blog home if it has sticky posts
@@ -473,33 +473,44 @@ add_action('wp_head', 'childtheme_flexslider_script');
 
 //override the index loop and remove the sticky posts, which will now be handled by the slider
 function childtheme_override_index_loop() {
+
+    // Count the number of posts so we can insert a widgetized area
     $count = 1;
+
+    // remove sticky posts from the query so they don't duplicate in the featured section
     query_posts(array("post__not_in" =>get_option("sticky_posts"), 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1 )));
     while ( have_posts() ) : the_post();
+
+        // action hook for insterting content above #post
         thematic_abovepost();
-            echo '<div id="post-' . get_the_ID() . '" ';
-            // Checking for defined constant to enable Thematic's post classes
-            if ( ! ( THEMATIC_COMPATIBLE_POST_CLASS ) ) {
-                post_class();
-                echo '>';
-            } else {
-                echo 'class="';
-                thematic_post_class();
-                echo '">';
-            }
+        ?>
+
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> > 
+
+        <?php
+            // creating the post header
             thematic_postheader();
-            ?>
+        ?>
+
             <div class="entry-content">
+
                 <?php thematic_content();
-                wp_link_pages('before=<div class="page-link">' . __('Pages:', 'thematic') . '&after=</div>') ?>
+
+                wp_link_pages(array('before' => sprintf('<nav class="page-link">%s', __('Pages:', 'thematic')), 'after' => '</nav>')); 
+                ?>
+
             </div><!-- .entry-content -->
+
             <?php thematic_postfooter(); ?>
-        </div><!-- #post -->
+
+        </article><!-- #post -->
 
         <?php
         // action hook for insterting content below #post
         thematic_belowpost();
+
         comments_template();
+
         if ( $count == thematic_get_theme_opt( 'index_insert' ) ) {
             get_sidebar('index-insert');
         }
@@ -511,9 +522,9 @@ function childtheme_override_index_loop() {
 
 // kill access and add some new code to be used with the jQuery drop down menu
 function childtheme_override_access() { ?>
-    <div id="access">
+    <div id="access" class="cf">
         <div class="menu-button"><span class="menu-title">Menu</span><div class="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div></div>
-        <nav id="nav" class="access-nav cf" role="navigation">
+        <nav class="access-nav cf" role="navigation">
                <?php
                 if ( ( function_exists("has_nav_menu") ) && ( has_nav_menu( apply_filters('thematic_primary_menu_id', 'primary-menu') ) ) ) {
                     echo  wp_nav_menu(thematic_nav_menu_args());
