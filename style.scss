@@ -1,11 +1,11 @@
-/*
+/*!
 Theme Name: Child's Play for Thematic
 Theme URI: http://scottnix.com/childs-play-responsive-child-theme-for-thematic/
 Description: A child theme based on the Responsive Base child theme for the Thematic Theme Framework, powered by SASS/Compass, lean and clean.
 Author: Scott Nix
 Author URI: http://scottnix.com/
 Template: thematic
-Version: 0.1.0
+Version: 0.2.0
 Tags: thematic, child-theme, responsive, mobile-first, SASS
 */
 
@@ -34,12 +34,16 @@ $transparency-hover: rgba(black, 0.2);
 $box-transparency: rgba(black, 0.2);
 
 // ==========================================================================
-// normalize.css
+// normalize.css v1.0.1 http://necolas.github.com/normalize.css/
 // ==========================================================================
 
 @import 'css/normalize';
 // better box model fix, http://paulirish.com/2012/box-sizing-border-box-ftw/
-* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+* { 
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
 
 // ==========================================================================
 // base styles
@@ -97,8 +101,8 @@ a {
     @include transition-timing-function(ease-in-out);
     color: $link-color;
     text-decoration: none;
-    &:hover { color: $link-hover; }
     &:visited { color: $link-color; }
+    &:hover { color: $link-hover; }
     &:focus { color: $link-focus; }
 }
 p,
@@ -729,9 +733,11 @@ img#wpstats {
 .flex-direction-nav li .prev { left: -15px; }
 .flex-direction-nav li .next { right: -15px; }
 .flex-caption {
+    width: 100%;
     background: #010101;
     font-size: 1em;
     a { color: $menu-link-color; }
+    span {  }
 }
 
 // ==========================================================================
@@ -743,7 +749,7 @@ img#wpstats {
 }
 
 @media only screen and (max-width: 600px) {
-    .flexslider .slides img { height:300px; }
+    .flexslider .slides img { height: 300px; }
 }
 
 @media only screen and (min-width: 768px) {
@@ -884,7 +890,7 @@ img#wpstats {
 // html5boilerplate non-semantic helper classes
 // ==========================================================================
 
-@import 'css/html5boilerplate-helper-classes';
+@import 'css/html5boilerplate-helper-classes'; 
 
 // html5boilerplate print styles
 // ==========================================================================
