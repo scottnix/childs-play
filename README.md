@@ -10,6 +10,11 @@ Demo
 
 http://scottnix.com/themes/childs-play/
 
+Changelog
+-------------
+
+https://github.com/scottnix/childs-play/wiki
+
 More Info
 -------------
 
