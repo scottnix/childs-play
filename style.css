@@ -313,7 +313,8 @@ hr,
 table,
 form,
 address,
-embed {
+embed,
+select {
   margin: 0 0 1.625em;
 }
 
@@ -910,18 +911,22 @@ input[type="submit"]:hover {
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
-.aside ul {
+.aside ul,
+.aside section ul {
   list-style: none;
   margin-left: 0;
   padding: 0;
 }
-.aside ul ul {
-  margin: 0 0 1.625em 20px;
+.aside ul ul,
+.aside section ul ul {
+  margin: 0 0 0 20px;
 }
-.aside ul ul li {
+.aside ul ul li,
+.aside section ul ul li {
   padding: 1px 0;
 }
-.aside ul ul ul {
+.aside ul ul ul,
+.aside section ul ul ul {
   margin-bottom: 0;
 }
 .aside img {
@@ -1149,7 +1154,7 @@ img#wpstats {
   }
 
   #main {
-    padding: 1.625em 0 0;
+    padding: 1.625em 2em 0;
     background: #fefefe;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   }
@@ -1158,12 +1163,6 @@ img#wpstats {
     float: left;
     width: 65.4%;
     margin-right: 3.8%;
-  }
-
-  .hentry,
-  .error404,
-  .noresults {
-    padding: 0 0 1.625em 2em;
   }
 
   .entry-utility ul {
@@ -1179,15 +1178,12 @@ img#wpstats {
   }
 
   #primary {
-    margin: 0;
-  }
-  #primary > ul {
+    padding: 0 1em;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
   }
 
-  #primary > ul,
-  #secondary > ul {
-    margin-right: 2em;
+  #primary,
+  #secondary {
     padding: 0 1em 1.625em;
   }
 
@@ -1198,7 +1194,6 @@ img#wpstats {
 
   #subsidiary {
     width: auto;
-    padding: 0 2em;
   }
   #subsidiary .aside {
     float: left;
@@ -1209,18 +1204,7 @@ img#wpstats {
     margin: 0;
   }
 
-  #content .aside {
-    margin: 0 0 1.625em 2em;
-  }
-
-  .archive .title-wrap,
-  .attachment .title-wrap,
-  .search .title-wrap {
-    padding: 0 0 0 2em;
-  }
-
   .navigation {
-    margin: 0 0 1.625em 2em;
     overflow: hidden;
   }
   .navigation .meta-nav {
@@ -1236,14 +1220,6 @@ img#wpstats {
     text-align: right;
   }
 
-  #comments {
-    padding: 0 0 0 2em;
-  }
-
-  #siteinfo p {
-    padding: 0 2em;
-  }
-
   .content-column {
     width: 45%;
     margin: 0 0 1.625em;
@@ -1256,7 +1232,7 @@ img#wpstats {
   }
 
   .flexslider {
-    margin: 0 0 3.25em 2em;
+    margin: 0 0 3.25em;
   }
 }
 .ir {

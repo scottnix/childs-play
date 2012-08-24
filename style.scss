@@ -114,7 +114,8 @@ hr,
 table,
 form,
 address,
-embed {
+embed, 
+select {
     margin: 0 0 1.625em;
 }
 ul { list-style: disc; }
@@ -603,11 +604,12 @@ input[type="submit"]:hover {
 .aside {
     word-wrap: break-word;
     overflow-wrap: break-word;
-    ul {
+    ul,
+    section ul {
         list-style: none;
         margin-left: 0;
         padding: 0;
-        ul { margin: 0 0 1.625em 20px;
+        ul { margin: 0 0 0 20px;
             li { padding: 1px 0; }
             ul { margin-bottom: 0; }
         }
@@ -804,7 +806,7 @@ img#wpstats {
         }
     }
     #main {
-        padding: 1.625em 0 0;
+        padding: 1.625em 2em 0;
         background: $background-color;
         box-shadow: 0 0 8px $box-transparency;
     }
@@ -813,15 +815,9 @@ img#wpstats {
         width: 65.4%;
         margin-right: 3.8%;
     }
-    .hentry,
-    .error404,
-    .noresults {
-        padding: 0 0 1.625em 2em;
-    }
     .entry-utility ul {
         float: left;
         width: 50%;
-
     }
     .main-aside,
     .header-aside {
@@ -830,15 +826,12 @@ img#wpstats {
         clear: right;
     }
     #primary {
-        margin: 0;
-        > ul { box-shadow: 0 0 4px 0 $box-transparency; }
+        padding: 0 1em;
+        box-shadow: 0 0 4px 0 $box-transparency;
     }
     #primary,
     #secondary {
-        > ul {
-            margin-right: 2em;
             padding: 0 1em 1.625em;
-        }
     }
     .sub-wrapper {
         width: 90%;
@@ -846,21 +839,17 @@ img#wpstats {
     }
     #subsidiary {
         width: auto;
-        padding: 0 2em;
         .aside {
             float: left;
             width: 30.8%;
             margin: 0 3.8% 0 0; }
         #third { margin: 0; }
     }
-    #content .aside { margin: 0 0 1.625em 2em; }
     .archive,
     .attachment,
     .search {
-        .title-wrap { padding: 0 0 0 2em; }
     }
     .navigation {
-        margin: 0 0 1.625em 2em;
         overflow: hidden;
         .meta-nav { font-style: normal; }
     }
@@ -869,8 +858,6 @@ img#wpstats {
         float: right;
         text-align: right;
     }
-    #comments { padding: 0 0 0 2em; }
-    #siteinfo p { padding: 0 2em; }
     .content-column {
         width: 45%;
         margin: 0 0 1.625em;
@@ -880,7 +867,7 @@ img#wpstats {
     .attachment-png #comments {
         width: 65.4%;
     }
-    .flexslider { margin: 0 0 3.25em 2em; }
+    .flexslider { margin: 0 0 3.25em; }
 }
 
 @media only screen and (min-width: 1024px) {
