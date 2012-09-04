@@ -7,6 +7,7 @@
 
 
 // recreates the doctype section, html5boilerplate.com style with conditional classes
+// the priority of 11 is added to override the priority of 10 on the Thematic HTML5 Plugin
 // http://scottnix.com/html5-header-with-thematic/
 function childtheme_create_doctype() {
     $content = "<!doctype html>" . "\n";
@@ -17,7 +18,7 @@ function childtheme_create_doctype() {
     $content .= "<html class=\"no-js\"";
     return $content;
 }
-add_filter('thematic_create_doctype', 'childtheme_create_doctype');
+add_filter('thematic_create_doctype', 'childtheme_create_doctype', 11);
 
 // creates the head, meta charset and viewport tags
 function childtheme_head_profile() {
@@ -27,13 +28,13 @@ function childtheme_head_profile() {
     $content .= "<meta name=\"viewport\" content=\"width=device-width\" />" . "\n";
     return $content;
 }
-add_filter('thematic_head_profile', 'childtheme_head_profile');
+add_filter('thematic_head_profile', 'childtheme_head_profile', 11);
 
 // remove meta charset tag, now in the above function
 function childtheme_create_contenttype() {
     // silence
 }
-add_filter('thematic_create_contenttype', 'childtheme_create_contenttype');
+add_filter('thematic_create_contenttype', 'childtheme_create_contenttype', 11);
 
 
 
@@ -118,7 +119,7 @@ add_action('wp_enqueue_scripts', 'childtheme_script_manager');
 
 
 // had to add this to get a div around the titles, mostly for correct scaling on em paddings.
-// also beefed up to add more robust style options with spans
+// also beefed up to add more robust style options with spans which all around gives you tons of title styling options
 function childtheme_override_page_title() {
     global $post;
         $content = "\t\t\t\t";
@@ -244,7 +245,7 @@ add_filter('thematic_widgetized_areas', 'childtheme_add_header_widget');
 // set structure for the header aside widget
 function childtheme_header_aside_widget() {
     if ( is_active_sidebar('header-aside-widget') ) {
-        echo "\n".'<aside id="header-widget" class="aside header-aside">' . "\n" . "\t" . '<ul class="xoxo">' . "\n";
+        echo "\n".'<aside id="header-widget" class="aside header-aside">' . "\n" . "\t" . '<ul class="xoxo inner">' . "\n";
         dynamic_sidebar('header-aside-widget');
         echo "\n" . "\t" . '</ul>' ."\n" . '</aside><!-- #header-widget .header-aside -->' . "\n";
     }
@@ -271,13 +272,13 @@ function childtheme_add_subsidiary($content) {
         );
     return $content;
 }
-add_filter('thematic_widgetized_areas', 'childtheme_add_subsidiary', 50);
+add_filter('thematic_widgetized_areas', 'childtheme_add_subsidiary');
 
 // set structure for the 4th subsidiary aside
 // this is modified from the original by adding the .sub-wrapper, super hacky!
 function childtheme_4th_subsidiary_aside() {
     if ( is_active_sidebar('4th-subsidiary-aside') ) {
-        echo "\n".'<aside id="fourth" class="aside footer-aside">' . "\n" . "\t" . '<ul class="xoxo">' . "\n";
+        echo "\n".'<aside id="fourth" class="aside footer-aside">' . "\n" . "\t" . '<ul class="xoxo inner">' . "\n";
         dynamic_sidebar('4th-subsidiary-aside');
         echo "\n" . "\t" . '</ul>' ."\n" . '</div><!-- #fourth .footer-aside -->' . "\n";
     }
@@ -357,7 +358,7 @@ function childtheme_override_postfooter() {
             $postfooter = '';
         // For post-types other than "Pages" press on
         } else {
-            $postfooter = '<div class="entry-utility cf">';
+            $postfooter = '<footer class="entry-utility cf">';
             $postfooter .= '<ul class="main-utilities">';
             $postfooter .= '<li>' . thematic_postmeta_authorlink() . '</li>';
             $postfooter .= '<li>' . thematic_postmeta_entrydate() . '</li>';
@@ -370,7 +371,7 @@ function childtheme_override_postfooter() {
                 $postfooter .= '<li>' . thematic_postfooter_posteditlink() . '</li>';
                 }
             $postfooter .= '</ul>';
-            $postfooter .= "\n\n\t\t\t\t\t</div><!-- .entry-utility -->\n";
+            $postfooter .= "\n\n\t\t\t\t\t</footer><!-- .entry-utility -->\n";
         }
         // Put it on the screen
         echo apply_filters( 'thematic_postfooter', $postfooter ); // Filter to override default post footer
