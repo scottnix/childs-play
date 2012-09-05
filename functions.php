@@ -245,15 +245,15 @@ add_filter('thematic_widgetized_areas', 'childtheme_add_header_widget');
 // set structure for the header aside widget
 function childtheme_header_aside_widget() {
     if ( is_active_sidebar('header-aside-widget') ) {
-        echo "\n".'<aside id="header-widget" class="aside header-aside">' . "\n" . "\t" . '<ul class="xoxo inner">' . "\n";
+        echo thematic_before_widget_area('header-widget');
         dynamic_sidebar('header-aside-widget');
-        echo "\n" . "\t" . '</ul>' ."\n" . '</aside><!-- #header-widget .header-aside -->' . "\n";
+        echo thematic_after_widget_area('header-widget');
     }
 }
 
 
 
-// add 4th subsidiary aside widget, currently set up to be a footer widget underneath the 3 subs
+// add 4th subsidiary aside widget, currently set up to be a footer widget (#footer-widget) underneath the 3 subs
 function childtheme_add_subsidiary($content) {
     $content['Footer Widget Aside'] = array(
         'admin_menu_order' => 550,
@@ -274,13 +274,13 @@ function childtheme_add_subsidiary($content) {
 }
 add_filter('thematic_widgetized_areas', 'childtheme_add_subsidiary');
 
-// set structure for the 4th subsidiary aside
+// set structure for the 4th subsidiary aside, footer widget (#footer-widget)
 // this is modified from the original by adding the .sub-wrapper, super hacky!
 function childtheme_4th_subsidiary_aside() {
     if ( is_active_sidebar('4th-subsidiary-aside') ) {
-        echo "\n".'<aside id="fourth" class="aside footer-aside">' . "\n" . "\t" . '<ul class="xoxo inner">' . "\n";
+        echo thematic_before_widget_area('footer-widget');
         dynamic_sidebar('4th-subsidiary-aside');
-        echo "\n" . "\t" . '</ul>' ."\n" . '</div><!-- #fourth .footer-aside -->' . "\n";
+        echo thematic_after_widget_area('footer-widget');
     }
     echo "\n" . '</div><!-- .sub-wrapper -->' . "\n";
 }

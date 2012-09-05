@@ -209,8 +209,7 @@ blockquote {
     font: $body-font-defaults;
     text-shadow: none;
 }
-.header-aside,
-.menu-skip {
+#header-widget {
     margin: 1.625em 0 0;
     .widgettitle { display: none; }
     ul,
@@ -649,7 +648,7 @@ input[type="submit"]:hover {
     width: 90%;
     margin: 0 auto;
     padding: 1.625em 0 0;
-    #fourth {
+    #footer-widget {
         width: 100%;
         margin :0;
         clear: both;
@@ -776,7 +775,7 @@ img#wpstats {
     .sub-wrapper {
         max-width: 1140px;
     }
-    .header-aside {
+    #header-widget {
         position: absolute;
         top: 1.625em;
         right: 0;
@@ -819,7 +818,7 @@ img#wpstats {
         width: 50%;
     }
     .main-aside,
-    .header-aside {
+    #header-widget {
         float: right;
         width: 30.8%;
         clear: right;

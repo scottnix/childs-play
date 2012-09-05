@@ -445,20 +445,15 @@ blockquote cite {
   text-shadow: none;
 }
 
-.header-aside,
-.menu-skip {
+#header-widget {
   margin: 1.625em 0 0;
 }
-.header-aside .widgettitle,
-.menu-skip .widgettitle {
+#header-widget .widgettitle {
   display: none;
 }
-.header-aside ul,
-.header-aside address,
-.header-aside form,
-.menu-skip ul,
-.menu-skip address,
-.menu-skip form {
+#header-widget ul,
+#header-widget address,
+#header-widget form {
   margin: 0;
 }
 
@@ -990,7 +985,7 @@ input[type="submit"]:hover {
   margin: 0 auto;
   padding: 1.625em 0 0;
 }
-#subsidiary #fourth {
+#subsidiary #footer-widget {
   width: 100%;
   margin: 0;
   clear: both;
@@ -1114,14 +1109,14 @@ img#wpstats {
     max-width: 1140px;
   }
 
-  .header-aside {
+  #header-widget {
     position: absolute;
     top: 1.625em;
     right: 0;
     margin: 0;
   }
-  .header-aside ul,
-  .header-aside address {
+  #header-widget ul,
+  #header-widget address {
     text-align: right;
   }
 
@@ -1170,7 +1165,7 @@ img#wpstats {
   }
 
   .main-aside,
-  .header-aside {
+  #header-widget {
     float: right;
     width: 30.8%;
     clear: right;
