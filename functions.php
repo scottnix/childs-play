@@ -486,7 +486,7 @@ function childtheme_override_index_loop() {
         thematic_abovepost();
         ?>
 
-        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> > 
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 
         <?php
             // creating the post header
@@ -497,7 +497,7 @@ function childtheme_override_index_loop() {
 
                 <?php thematic_content();
 
-                wp_link_pages(array('before' => sprintf('<nav class="page-link">%s', __('Pages:', 'thematic')), 'after' => '</nav>')); 
+                wp_link_pages(array('before' => sprintf('<nav class="page-link">%s', __('Pages:', 'thematic')), 'after' => '</nav>'));
                 ?>
 
             </div><!-- .entry-content -->

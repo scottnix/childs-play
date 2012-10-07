@@ -39,10 +39,10 @@ $box-transparency: rgba(black, 0.2);
 
 @import 'css/normalize';
 // better box model fix, http://paulirish.com/2012/box-sizing-border-box-ftw/
-* { 
-    -moz-box-sizing: border-box; 
-    -webkit-box-sizing: border-box; 
-    box-sizing: border-box; 
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 // ==========================================================================
@@ -114,7 +114,7 @@ hr,
 table,
 form,
 address,
-embed, 
+embed,
 select {
     margin: 0 0 1.625em;
 }
@@ -429,7 +429,7 @@ img.aligncenter {
         clear: both;
         overflow: hidden;
     }
-    .gallery-item { 
+    .gallery-item {
         margin: 0;
         padding: 0;
         list-style: none;
@@ -439,7 +439,7 @@ img.aligncenter {
             max-width: 90%;
             margin: 0 auto;
             padding: 1%;
-            border: none !important; 
+            border: none !important;
         }
     }
 }
@@ -552,6 +552,7 @@ img.aligncenter {
 .page-link,
 .comment-navigation {
     margin: 0 0 1.625em;
+    clear: both;
     font-weight: bold;
     word-spacing: 0.5em;
     a {
@@ -875,7 +876,7 @@ img#wpstats {
 // html5boilerplate non-semantic helper classes
 // ==========================================================================
 
-@import 'css/html5boilerplate-helper-classes'; 
+@import 'css/html5boilerplate-helper-classes';
 
 // html5boilerplate print styles
 // ==========================================================================
