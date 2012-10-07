@@ -549,9 +549,15 @@ blockquote cite {
 }
 
 #main {
+  *zoom: 1;
   position: relative;
   width: 90%;
   margin: 0 auto;
+  clear: both;
+}
+#main:after {
+  content: "";
+  display: table;
   clear: both;
 }
 
@@ -845,6 +851,7 @@ img.aligncenter {
 .page-link,
 .comment-navigation {
   margin: 0 0 1.625em;
+  clear: both;
   font-weight: bold;
   word-spacing: 0.5em;
 }
