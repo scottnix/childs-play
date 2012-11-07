@@ -39,11 +39,8 @@ $box-transparency: rgba(black, 0.2);
 
 @import 'css/normalize';
 // better box model fix, http://paulirish.com/2012/box-sizing-border-box-ftw/
-* {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
+
+* { @include box-sizing(border-box); }
 
 // ==========================================================================
 // base styles
