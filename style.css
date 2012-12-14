@@ -5,7 +5,7 @@ Description: A child theme based on the Responsive Base child theme for the Them
 Author: Scott Nix
 Author URI: http://scottnix.com/
 Template: thematic
-Version: 0.2.0
+Version: 0.3.0
 Tags: thematic, child-theme, responsive, mobile-first, SASS
 */
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
@@ -413,7 +413,8 @@ blockquote p {
 }
 blockquote em,
 blockquote i,
-blockquote cite {
+blockquote cite,
+blockquote span {
   font-style: normal;
 }
 
@@ -459,9 +460,16 @@ blockquote cite {
 }
 
 #access {
+  *zoom: 1;
   width: 90%;
   margin: 0 auto 1.625em;
+  background-color: #010101;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+}
+#access:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .menu-button {
@@ -513,10 +521,6 @@ blockquote cite {
   background: #da1113;
 }
 
-.access-nav {
-  width: 100%;
-  margin: 0 auto;
-}
 .js .access-nav {
   display: none;
 }
@@ -524,29 +528,64 @@ blockquote cite {
   margin: 0;
   padding: 0;
 }
-.access-nav li {
+
+.sf-menu li {
   position: relative;
   display: block;
-  width: 100%;
-  float: left;
   border-bottom: 1px solid #f1f1f1;
-  list-style: none;
   background: #ddd;
 }
-.access-nav li a {
+.sf-menu li:last-child {
+  border: none;
+}
+.sf-menu li a {
   display: block;
   padding: .5em .35em .5em 1em;
   color: #3d3331;
 }
-.access-nav li a:hover {
+.sf-menu li a:hover {
   padding-left: 1.5em;
   color: #da1113;
 }
-.access-nav li:last-child {
-  border: none;
+.sf-menu .has-flyout:after {
+  border-color: #000 transparent transparent;
+  border-image: none;
+  border-style: solid;
+  border-width: 5px;
+  content: "";
+  display: block;
+  height: 0;
+  position: absolute;
+  right: 10px;
+  top: 21px;
+  width: 0;
 }
-.access-nav li ul {
-  display: none;
+.sf-menu .sub-menu li {
+  border-bottom: none;
+}
+.sf-menu .sub-menu li a {
+  padding-left: 2em;
+}
+.sf-menu .sub-menu li a:hover {
+  padding-left: 2.5em;
+}
+.sf-menu .sub-menu li li {
+  border-bottom: none;
+}
+.sf-menu .sub-menu li li a {
+  padding-left: 3em;
+}
+.sf-menu .sub-menu li li a:hover {
+  padding-left: 3.5em;
+}
+.sf-menu .sub-menu li li li {
+  border-bottom: none;
+}
+.sf-menu .sub-menu li li li a {
+  padding-left: 4em;
+}
+.sf-menu .sub-menu li li li a:hover {
+  padding-left: 4.5em;
 }
 
 #main {
@@ -710,19 +749,21 @@ img.aligncenter {
   clear: both;
   overflow: hidden;
 }
-.gallery .gallery-row {
+
+.gallery-row {
   display: block;
   margin: 0;
   clear: both;
   overflow: hidden;
 }
-.gallery .gallery-item {
+
+.gallery-item {
   margin: 0;
   padding: 0;
   list-style: none;
   overflow: hidden;
 }
-.gallery .gallery-item img {
+.gallery-item img {
   height: auto;
   max-width: 90%;
   margin: 0 auto;
@@ -789,7 +830,7 @@ img.aligncenter {
 }
 #comments-list .comment-author {
   font-weight: bold;
-  padding: 9px 0 0 46px;
+  padding: 0 0 0 46px;
 }
 #comments-list .comment-meta {
   padding: 0 0 9px 46px;
@@ -819,10 +860,10 @@ img.aligncenter {
   margin-bottom: 1.625em;
 }
 
-#cancel-comment-reply {
+#cancel-comment-reply-link {
   position: absolute;
-  top: 1.625em;
-  right: 1.5em;
+  top: 0;
+  right: 0;
 }
 
 .form-section input {
@@ -1036,6 +1077,9 @@ input[type="submit"]:hover {
   padding-left: 20px;
   padding-right: 20px;
 }
+.lt-ie9 #access {
+  background-color: transparent;
+}
 
 .lt-ie8 .menu-title {
   float: left;
@@ -1062,7 +1106,7 @@ img#wpstats {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 .flexslider .slides img {
-  height: 400px;
+  height: 300px;
 }
 
 .flex-control-nav {
@@ -1086,12 +1130,7 @@ img#wpstats {
   color: #fefefe;
 }
 
-@media only screen and (max-width: 600px) {
-  .flexslider .slides img {
-    height: 300px;
-  }
-}
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 45em) {
   blockquote.left {
     width: 33%;
     float: left;
@@ -1136,23 +1175,80 @@ img#wpstats {
     display: none;
   }
 
-  .access-nav {
+  .sf-menu li {
+    position: relative;
+    float: left;
     background: #010101;
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
-  }
-  .access-nav li {
-    width: auto;
-    margin-right: .5em;
-    padding: 0;
     border-bottom: none;
-    background: none;
   }
-  .access-nav li a {
-    padding: 0.35em .5em;
+  .sf-menu li:hover ul {
+    left: 0;
+    top: 2.6em;
+    z-index: 99;
+  }
+  .sf-menu li.has-flyout:after {
+    border-color: #fff transparent transparent;
+  }
+  .sf-menu li a {
+    display: block;
+    position: relative;
+    text-decoration: none;
     color: #fefefe;
+    padding: 0.5em 0.75em;
   }
-  .access-nav li a:hover {
-    padding: 0.35em .5em;
+  .sf-menu li a:focus, .sf-menu li a:hover, .sf-menu li a:active {
+    color: #da1113;
+    padding: 0.5em 0.75em;
+    outline: 0;
+  }
+  .sf-menu > li.has-flyout a {
+    padding-right: 1.75em;
+  }
+  .sf-menu .sub-menu {
+    position: absolute;
+    top: -999em;
+    width: 10em;
+  }
+  .sf-menu .sub-menu li {
+    width: 100%;
+    background: #ddd;
+  }
+  .sf-menu .sub-menu li a {
+    padding: 0.5em 0.75em;
+    color: #010101;
+  }
+  .sf-menu .sub-menu li a:hover {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.5em 0.75em;
+  }
+  .sf-menu .sub-menu li li a {
+    padding: 0.5em 0.75em;
+  }
+  .sf-menu .sub-menu li li a:hover {
+    padding: 0.5em 0.75em;
+  }
+  .sf-menu .sub-menu li li li a {
+    padding: 0.5em 0.75em;
+  }
+  .sf-menu .sub-menu li li li a:hover {
+    padding: 0.5em 0.75em;
+  }
+  .sf-menu .sub-menu li.has-flyout:after {
+    border-color: #000 transparent transparent;
+  }
+  .sf-menu li:hover li ul {
+    top: -999em;
+  }
+  .sf-menu li li:hover ul {
+    left: 10em;
+    top: 0;
+  }
+  .sf-menu li li:hover li ul {
+    top: -999em;
+  }
+  .sf-menu li li li:hover ul {
+    left: 10em;
+    top: 0;
   }
 
   #main {
@@ -1209,6 +1305,7 @@ img#wpstats {
 
   .navigation {
     overflow: hidden;
+    margin: 0 0 1.625em 0;
   }
   .navigation .meta-nav {
     font-style: normal;
@@ -1236,6 +1333,11 @@ img#wpstats {
 
   .flexslider {
     margin: 0 0 3.25em;
+  }
+}
+@media only screen and (min-width: 65em) {
+  .flexslider .slides img {
+    height: 400px;
   }
 }
 .ir {
