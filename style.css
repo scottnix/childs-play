@@ -1087,6 +1087,16 @@ input[type="submit"]:hover {
 .lt-ie8 .menu-button {
   padding-bottom: 1em;
 }
+.lt-ie8 .access-nav ul {
+  list-style-type: none;
+}
+.lt-ie8 .access-nav ul li a {
+  display: inline-block;
+  width: 80%;
+}
+.lt-ie8 .flex-caption {
+  width: 96%;
+}
 
 img#wpstats {
   width: 0;

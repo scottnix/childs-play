@@ -727,6 +727,16 @@ input[type="submit"]:hover {
 .lt-ie8 {
     .menu-title { float: left; }
     .menu-button { padding-bottom: 1em; }
+    .access-nav ul {
+        list-style-type: none;
+        // fix fo IE7 gap bug on list items
+        li a {
+            display: inline-block;
+            width: 80%;
+        }
+    }
+    // fix for IE7, no box model so you need to account for padding
+    .flex-caption { width: 96%; }
 }
 
 // plugin specific
