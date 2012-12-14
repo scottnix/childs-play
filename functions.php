@@ -90,8 +90,6 @@ function childtheme_script_manager() {
     // wp_register_script template ( $handle, $src, $deps, $ver, $in_footer );
     // registers modernizr script, stylesheet local path, no dependency, no version, loads in header
     wp_register_script('modernizr-js', get_stylesheet_directory_uri() . '/js/modernizr.js', false, false, false);
-    // registers dropdowns script, local stylesheet path, yes dependency is jquery, no version, loads in footer
-    // wp_register_script('dropdowns-js', get_bloginfo('stylesheet_directory') . '/js/superfish-dropdowns.js', array('jquery'), false, true);
     // registers fitvids script, local stylesheet path, yes dependency is jquery, no version, loads in footer
     wp_register_script('fitvids-js', get_stylesheet_directory_uri() . '/js/jquery.fitvids.js', array('jquery'), false, true);
     // registers misc custom script, local stylesheet path, yes dependency is jquery, no version, loads in footer
@@ -523,9 +521,9 @@ function childtheme_override_index_loop() {
 
 // kill access and add some new code to be used with the jQuery drop down menu
 function childtheme_override_access() { ?>
-    <div id="access" class="cf">
+    <div id="access">
         <div class="menu-button"><span class="menu-title">Menu</span><div class="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div></div>
-        <nav class="access-nav cf" role="navigation">
+        <div class="access-nav" role="navigation">
                <?php
                 if ( ( function_exists("has_nav_menu") ) && ( has_nav_menu( apply_filters('thematic_primary_menu_id', 'primary-menu') ) ) ) {
                     echo  wp_nav_menu(thematic_nav_menu_args());
@@ -533,10 +531,32 @@ function childtheme_override_access() { ?>
                     echo  thematic_add_menuclass(wp_page_menu(thematic_page_menu_args()));
                 }
                 ?>
-        </nav>
+        </div>
     </div><!-- #access -->
     <?php
 }
 
+// add classes to access menu "has-flyout and active" to items with sub menus, for indicator arrows
+// https://github.com/petskratt/foundation-base/blob/master/foundation-base.php
+function childtheme_menu_class($items) {
+    function has_Sub($menu_item_id, &$items) {
+            foreach ($items as $item) {
+                if ($item->menu_item_parent && $item->menu_item_parent==$menu_item_id) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    foreach ($items as &$item) {
+        if ( has_Sub($item->ID, $items) ) {
+            $item->classes[] = 'has-flyout';
+            $item->hasFlyout = true;
+        }
 
-?>
+        if (in_array ('current-menu-item', $item->classes) || in_array ('current-menu-ancestor', $item->classes)) {
+            $item->classes[] = 'active';
+        }
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'childtheme_menu_class');
