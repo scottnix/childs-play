@@ -5,41 +5,23 @@ Description: A child theme based on the Responsive Base child theme for the Them
 Author: Scott Nix
 Author URI: http://scottnix.com/
 Template: thematic
-Version: 0.2.0
+Version: 0.3.0
 Tags: thematic, child-theme, responsive, mobile-first, SASS
 */
 
-@import 'css/base.scss';
+// ==========================================================================
+// load supporting files (compass, variables, mixins)
+// ==========================================================================
 
-$background-color: #fefefe;
-$body-font-defaults: 1em/1.625 Georgia, Times, "Times New Roman", serif;
-$text-color: #3d3331;
-$header-font: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
-$header-color: #3d3331;
-$shadow-1: -1px -1px 1px rgba(white, 0.5);
-$shadow-2: 1px 1px 0 rgba(white, 0.5);
-$shadow-3: 2px 2px 2px rgba(black, 0.2);
-$helper-text: #7f7f7f;
-$helper-link: #7f7f7f;
-$link-color: #004b91;
-$link-hover: #da1113;
-$link-focus: #da1113;
-$menu-background: #010101;
-$menu-link-color: #fefefe;
-$menu-link-hover: #da1113;
-$selection-color: #fe57a1; // html5boilerplate pink lives on!
-$accents-color: #da1113;
-$transparency: rgba(black, 0.1);
-$transparency-hover: rgba(black, 0.2);
-$box-transparency: rgba(black, 0.2);
+@import 'css/base';
 
 // ==========================================================================
 // normalize.css v1.0.1 http://necolas.github.com/normalize.css/
 // ==========================================================================
 
 @import 'css/normalize';
-// better box model fix, http://paulirish.com/2012/box-sizing-border-box-ftw/
 
+// better box model fix, http://paulirish.com/2012/box-sizing-border-box-ftw/
 * { @include box-sizing(border-box); }
 
 // ==========================================================================
@@ -174,7 +156,8 @@ blockquote {
     }
     em,
     i,
-    cite {
+    cite,
+    span {
         font-style: normal;
     }
 }
@@ -216,8 +199,10 @@ blockquote {
     }
 }
 #access {
+    @include pie-clearfix;
     width: 90%;
     margin: 0 auto 1.625em;
+    background-color: $menu-background;
     box-shadow: 0 0 4px 0 $box-transparency;
 }
 .menu-button {
@@ -260,21 +245,19 @@ blockquote {
     .icon-bar { background: $accents-color; }
 }
 .access-nav {
-    width: 100%;
-    margin: 0 auto;
     .js & { display: none; }
     ul {
         margin: 0;
         padding: 0;
     }
+}
+.sf-menu {
     li {
         position: relative;
         display: block;
-        width: 100%;
-        float: left;
         border-bottom: 1px solid #f1f1f1;
-        list-style: none;
         background: #ddd;
+        &:last-child { border: none; }
         a {
             display: block;
             padding: .5em .35em .5em 1em;
@@ -284,8 +267,46 @@ blockquote {
                 color: $link-hover;
             }
         }
-        &:last-child { border: none; }
-        ul { display: none; }
+    }
+    .has-flyout:after {
+        border-color: #000 transparent transparent;
+        border-image: none;
+        border-style: solid;
+        border-width: 5px;
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        right: 10px;
+        top: 21px;
+        width: 0;
+        }
+    .sub-menu li {
+        border-bottom: none;
+        a {
+            padding-left: 2em;
+            &:hover {
+                padding-left: 2.5em;
+            }
+        }
+        li {
+            border-bottom: none;
+            a {
+                padding-left: 3em;
+                &:hover {
+                    padding-left: 3.5em;
+                }
+            }
+            li {
+                border-bottom: none;
+                a {
+                    padding-left: 4em;
+                    &:hover {
+                        padding-left: 4.5em;
+                    }
+                }
+            }
+        }
     }
 }
 #main {
@@ -421,24 +442,24 @@ img.aligncenter {
     padding: 0 0 1.625em;
     clear: both;
     overflow: hidden;
-    .gallery-row {
-        display: block;
-        margin: 0;
-        clear: both;
-        overflow: hidden;
-    }
-    .gallery-item {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        overflow: hidden;
-        img {
-            height: auto;
-            max-width: 90%;
-            margin: 0 auto;
-            padding: 1%;
-            border: none !important;
-        }
+}
+.gallery-row {
+    display: block;
+    margin: 0;
+    clear: both;
+    overflow: hidden;
+}
+.gallery-item {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    img {
+        height: auto;
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 1%;
+        border: none !important;
     }
 }
 .gallery-icon {
@@ -496,7 +517,7 @@ img.aligncenter {
     .thread-odd { background: #f1f1f1; }
     .comment-author {
         font-weight: bold;
-        padding: 9px 0 0 46px;
+        padding: 0 0 0 46px;
     }
     .comment-meta { padding:0 0 9px 46px; }
     #respond {
@@ -521,10 +542,10 @@ img.aligncenter {
     position: relative;
     margin-bottom: 1.625em;
 }
-#cancel-comment-reply {
+#cancel-comment-reply-link {
     position: absolute;
-    top: 1.625em;
-    right: 1.5em;
+    top: 0;
+    right: 0;
 }
 .form-section {
     input {
@@ -699,6 +720,7 @@ input[type="submit"]:hover {
         padding-left: 20px;
         padding-right: 20px;
     }
+    #access { background-color: transparent; }
 }
 
 // less than IE 8 (6,7)
@@ -725,7 +747,7 @@ img#wpstats {
     .entry-title { display: none; }
     .slides {
         box-shadow: 0 0 8px $box-transparency;
-        img { height: 400px; }
+        img { height: 300px; }
     }
 }
 .flex-control-nav { display: none; }
@@ -743,15 +765,8 @@ img#wpstats {
 // media queries
 // ==========================================================================
 
-@media only screen and (min-width: 400px) {
 
-}
-
-@media only screen and (max-width: 600px) {
-    .flexslider .slides img { height: 300px; }
-}
-
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 45em) {
     blockquote {
         &.left {
             width: 33%;
@@ -786,20 +801,88 @@ img#wpstats {
     }
     .js .access-nav { display: block; }
     .menu-button { display: none; }
-    .access-nav {
-        background: $menu-background;
-        box-shadow: 0 0 4px 0 $box-transparency;
+    .sf-menu {
         li {
-            width: auto;
-            margin-right: .5em;
-            padding: 0;
+            position: relative;
+            float: left;
+            background: $menu-background;
             border-bottom: none;
-            background: none;
-            a {
-                padding: 0.35em .5em;
-                color: $menu-link-color;
-                &:hover { padding: 0.35em .5em; }
+            &:hover {
+                ul {
+                    left: 0;
+                    top: 2.6em;
+                    z-index: 99;
+                }
             }
+            &.has-flyout:after { border-color: #fff transparent transparent; }
+
+            a {
+               display: block;
+                position: relative;
+                text-decoration: none;
+                color: $menu-link-color;
+                padding: 0.5em 0.75em;
+                &:focus, &:hover, &:active {
+                    color: $menu-link-hover;
+                    padding: 0.5em 0.75em;
+                    outline: 0;
+                }
+
+            }
+        }
+        > li.has-flyout a { padding-right: 1.75em; }
+        .sub-menu {
+            position: absolute;
+            top: -999em;
+            width: 10em;
+            li {
+                width: 100%;
+                background: #ddd;
+                a {
+                    padding: 0.5em 0.75em;
+                    color: $menu-background;
+                    &:hover {
+                        background: $transparency;
+                        padding: 0.5em 0.75em;
+                    }
+                }
+                li {
+                    a {
+                        padding: 0.5em 0.75em;
+                        &:hover {
+                            padding: 0.5em 0.75em;
+                        }
+                    }
+                    li {
+                        a {
+                            padding: 0.5em 0.75em;
+                            &:hover {
+                                padding: 0.5em 0.75em;
+                            }
+                        }
+                    }
+                }
+            &.has-flyout:after { border-color: #000 transparent transparent; }
+            }
+        }
+        .current-menu-item a,
+        .current-menu-parent a,
+        .current-menu-ancestor a,
+        .current-post-ancestor a,
+        .current_page_item a,
+        .current_page_ancestor a,
+        .current_page_parent a {
+           // nothing yet...
+        }
+        li:hover li ul { top: -999em; }
+        li li:hover ul {
+            left: 10em;
+            top: 0;
+        }
+        li li:hover li ul { top: -999em; }
+        li li li:hover ul {
+            left: 10em;
+            top: 0;
         }
     }
     #main {
@@ -848,6 +931,7 @@ img#wpstats {
     }
     .navigation {
         overflow: hidden;
+        margin: 0 0 1.625em 0;
         .meta-nav { font-style: normal; }
     }
     .nav-previous { float: left; }
@@ -867,7 +951,11 @@ img#wpstats {
     .flexslider { margin: 0 0 3.25em; }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 65em) {
+    .flexslider .slides img { height: 400px; }
+}
+
+@media only screen and (min-width: 75em) {
 
 }
 
