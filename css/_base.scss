@@ -1,10 +1,9 @@
-// import compass - http://compass-style.org/reference/compass/
+// import compass - compass-style.org/reference/compass/
 // ==========================================================================
 
 @import "compass";
 
-
-// variables - http://sass-lang.com/
+// variables - sass-lang.com/
 // ==========================================================================
 
 $background-color: #fefefe;
@@ -29,7 +28,7 @@ $transparency: rgba(black, 0.1);
 $transparency-hover: rgba(black, 0.2);
 $box-transparency: rgba(black, 0.2);
 $spacing: 1.625em;  // not used yet.... reminder
-$half-spacing: $spacing/2;  // not used yet.... reminder
+$spacing-half: $spacing/2;  // not used yet.... reminder
 
 // mixins
 // ==========================================================================

@@ -281,7 +281,7 @@ blockquote {
         top: 21px;
         width: 0;
         }
-    .sub-menu li {
+    .sub-menu li, .children li {
         border-bottom: none;
         a {
             padding-left: 2em;
@@ -841,7 +841,7 @@ img#wpstats {
             }
         }
         > li.has-flyout a { padding-right: 1.75em; }
-        .sub-menu {
+        .sub-menu, .children {
             position: absolute;
             top: -999em;
             width: 10em;

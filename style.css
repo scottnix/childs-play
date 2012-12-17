@@ -560,31 +560,31 @@ blockquote span {
   top: 21px;
   width: 0;
 }
-.sf-menu .sub-menu li {
+.sf-menu .sub-menu li, .sf-menu .children li {
   border-bottom: none;
 }
-.sf-menu .sub-menu li a {
+.sf-menu .sub-menu li a, .sf-menu .children li a {
   padding-left: 2em;
 }
-.sf-menu .sub-menu li a:hover {
+.sf-menu .sub-menu li a:hover, .sf-menu .children li a:hover {
   padding-left: 2.5em;
 }
-.sf-menu .sub-menu li li {
+.sf-menu .sub-menu li li, .sf-menu .children li li {
   border-bottom: none;
 }
-.sf-menu .sub-menu li li a {
+.sf-menu .sub-menu li li a, .sf-menu .children li li a {
   padding-left: 3em;
 }
-.sf-menu .sub-menu li li a:hover {
+.sf-menu .sub-menu li li a:hover, .sf-menu .children li li a:hover {
   padding-left: 3.5em;
 }
-.sf-menu .sub-menu li li li {
+.sf-menu .sub-menu li li li, .sf-menu .children li li li {
   border-bottom: none;
 }
-.sf-menu .sub-menu li li li a {
+.sf-menu .sub-menu li li li a, .sf-menu .children li li li a {
   padding-left: 4em;
 }
-.sf-menu .sub-menu li li li a:hover {
+.sf-menu .sub-menu li li li a:hover, .sf-menu .children li li li a:hover {
   padding-left: 4.5em;
 }
 
@@ -1214,36 +1214,36 @@ img#wpstats {
   .sf-menu > li.has-flyout a {
     padding-right: 1.75em;
   }
-  .sf-menu .sub-menu {
+  .sf-menu .sub-menu, .sf-menu .children {
     position: absolute;
     top: -999em;
     width: 10em;
   }
-  .sf-menu .sub-menu li {
+  .sf-menu .sub-menu li, .sf-menu .children li {
     width: 100%;
     background: #ddd;
   }
-  .sf-menu .sub-menu li a {
+  .sf-menu .sub-menu li a, .sf-menu .children li a {
     padding: 0.5em 0.75em;
     color: #010101;
   }
-  .sf-menu .sub-menu li a:hover {
+  .sf-menu .sub-menu li a:hover, .sf-menu .children li a:hover {
     background: rgba(0, 0, 0, 0.1);
     padding: 0.5em 0.75em;
   }
-  .sf-menu .sub-menu li li a {
+  .sf-menu .sub-menu li li a, .sf-menu .children li li a {
     padding: 0.5em 0.75em;
   }
-  .sf-menu .sub-menu li li a:hover {
+  .sf-menu .sub-menu li li a:hover, .sf-menu .children li li a:hover {
     padding: 0.5em 0.75em;
   }
-  .sf-menu .sub-menu li li li a {
+  .sf-menu .sub-menu li li li a, .sf-menu .children li li li a {
     padding: 0.5em 0.75em;
   }
-  .sf-menu .sub-menu li li li a:hover {
+  .sf-menu .sub-menu li li li a:hover, .sf-menu .children li li li a:hover {
     padding: 0.5em 0.75em;
   }
-  .sf-menu .sub-menu li.has-flyout:after {
+  .sf-menu .sub-menu li.has-flyout:after, .sf-menu .children li.has-flyout:after {
     border-color: #000 transparent transparent;
   }
   .sf-menu li:hover li ul {
