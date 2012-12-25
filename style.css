@@ -233,54 +233,55 @@ body {
   background: #fefefe;
 }
 
-h1, #blog-title,
-h2,
-.entry-title,
-h3,
-h4,
-.widgettitle,
-h5,
-h6,
-.page-title {
+h1, #blog-title {
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.2);
+  margin: 0 0 0.5417em;
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+  font-size: 3em;
+  line-height: 1.0833em;
   color: #3d3331;
 }
 
-h1, #blog-title {
-  margin: 0 0 0.5417em;
-  font-size: 3em;
-  line-height: 1.0833em;
-}
-
 h2, .entry-title {
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.2);
   margin: 0 0 0.7222em;
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
   font-size: 2.25em;
   line-height: 1.4444em;
+  color: #3d3331;
 }
 
 h3 {
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.2);
   margin: 0 0 0.8667em;
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
   font-size: 1.875em;
   line-height: 1.7333em;
+  color: #3d3331;
 }
 
 h4, .widgettitle {
   margin: 0 0 1.0833em;
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
   font-size: 1.5em;
   line-height: 1.0833em;
+  color: #3d3331;
 }
 
 h5 {
   margin: 0 0 1.1818em;
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
   font-size: 1.375em;
   line-height: 1.1818em;
+  color: #3d3331;
 }
 
 h6, .page-title {
   margin: 0 0 1.4444em;
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
   font-size: 1.125em;
   line-height: 1.4444em;
+  color: #3d3331;
 }
 
 a {
@@ -306,12 +307,7 @@ a:focus {
 }
 
 p,
-ul,
-ol,
-dd,
 pre,
-hr,
-table,
 form,
 address,
 embed,
@@ -320,17 +316,12 @@ select {
 }
 
 ul {
+  margin: 0 0 1.625em;
   list-style: disc;
 }
 
-ul ul,
-ul ol,
-ol ul,
-ol ol {
-  margin-bottom: 0;
-}
-
 ol {
+  margin: 0 0 1.625em;
   list-style-type: decimal;
 }
 ol ol {
@@ -343,12 +334,23 @@ ol ol ol ol {
   list-style: lower-alpha;
 }
 
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin-bottom: 0;
+}
+
 dl {
   margin: 0 1em;
 }
 
 dt {
   font-weight: bold;
+}
+
+dd {
+  margin: 0 0 1.625em;
 }
 
 abbr, acronym {
@@ -369,6 +371,7 @@ caption {
 }
 
 table {
+  margin: 0 0 1.625em;
   border: 1px solid #da1113;
   border-width: 1px 1px 0;
   text-align: left;
@@ -386,6 +389,7 @@ td {
 
 hr {
   height: 1px;
+  margin: 0 0 1.625em;
   border: 0;
   background: #da1113;
   color: #da1113;
@@ -464,7 +468,7 @@ blockquote span {
   width: 90%;
   margin: 0 auto 1.625em;
   background-color: #010101;
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
 }
 #access:after {
   content: "";
@@ -651,9 +655,15 @@ blockquote span {
 }
 
 .entry-utility {
+  *zoom: 1;
   clear: both;
   font-size: 90%;
   color: #7f7f7f;
+}
+.entry-utility:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 .entry-utility a {
   border-bottom: 1px dotted #7f7f7f;
@@ -698,8 +708,7 @@ blockquote span {
 
 .entry-content .wp-post-image {
   float: right;
-  margin: 0 0 20px 1.625em;
-  padding: 5px;
+  margin: 0 0 1em 1.625em;
 }
 .entry-content img {
   height: auto;
@@ -710,13 +719,13 @@ blockquote span {
 .alignleft,
 img.alignleft {
   float: left;
-  margin-right: 20px;
+  margin-right: 1em;
 }
 
 .alignright,
 img.alignright {
   float: right;
-  margin-left: 20px;
+  margin-left: 1em;
 }
 
 .aligncenter,
@@ -728,18 +737,18 @@ img.aligncenter {
 }
 
 .wp-caption {
-  max-width: 96%;
+  max-width: 100%;
   margin-bottom: 1.625em;
-  padding: 9px 0 0;
   text-align: center;
 }
 .wp-caption img {
   margin: 0;
   padding: 0;
 }
-.wp-caption p.wp-caption-text {
+
+.wp-caption-text {
   margin: 0;
-  padding: 1.625em 5px;
+  padding: 1.625em 0;
 }
 
 .gallery {
@@ -765,19 +774,16 @@ img.aligncenter {
 }
 .gallery-item img {
   height: auto;
-  max-width: 90%;
   margin: 0 auto;
-  padding: 1%;
   border: none !important;
 }
 
 .gallery-icon {
-  margin: 0 5px;
-  padding-top: 6px;
+  margin: 0 .25em;
 }
 
 .gallery-caption {
-  padding: 6px 6px 0;
+  padding: .25em .25em 0;
 }
 
 .wp-smiley {
@@ -819,8 +825,8 @@ img.aligncenter {
   position: absolute;
   top: 1.625em;
   left: 1.5em;
-  width: 36px;
-  height: 36px;
+  width: 2.5em;
+  height: 2.5em;
 }
 #comments-list li.bypostauthor {
   background: #ffffcc;
@@ -830,10 +836,10 @@ img.aligncenter {
 }
 #comments-list .comment-author {
   font-weight: bold;
-  padding: 0 0 0 46px;
+  padding: 0 0 0 3em;
 }
 #comments-list .comment-meta {
-  padding: 0 0 9px 46px;
+  padding: 0 0 0.5em 3em;
 }
 #comments-list #respond {
   margin: 0 0 1.625em;
@@ -962,7 +968,7 @@ input[type="submit"]:hover {
 }
 .aside ul ul,
 .aside section ul {
-  margin: 0 0 1.625em 20px;
+  margin: 0 0 1.625em 1em;
 }
 .aside ul ul li,
 .aside section ul li {
@@ -1094,9 +1100,6 @@ input[type="submit"]:hover {
   display: inline-block;
   width: 80%;
 }
-.lt-ie8 .flex-caption {
-  width: 96%;
-}
 
 img#wpstats {
   width: 0;
@@ -1116,7 +1119,7 @@ img#wpstats {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 .flexslider .slides img {
-  height: 300px;
+  height: auto;
 }
 
 .flex-control-nav {
@@ -1133,11 +1136,70 @@ img#wpstats {
 
 .flex-caption {
   width: 100%;
+  padding: 0;
   background: #010101;
   font-size: 1em;
 }
 .flex-caption a {
+  display: block;
+  padding: 1em;
   color: #fefefe;
+}
+
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  *text-indent: -9999px;
+}
+
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 100%;
+}
+
+.hidden {
+  display: none!important;
+  visibility: hidden;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.cf:before, .cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
 }
 
 @media only screen and (min-width: 45em) {
@@ -1273,6 +1335,9 @@ img#wpstats {
     margin-right: 3.8%;
   }
 
+  .entry-utility {
+    padding: 1.625em 0;
+  }
   .entry-utility ul {
     float: left;
     width: 50%;
@@ -1290,9 +1355,9 @@ img#wpstats {
   }
 
   #primary section,
-  #primary .xoxo,
+  #primary > ul,
   #secondary section,
-  #secondary .xoxo {
+  #secondary > ul {
     padding: 0 1em;
   }
 
@@ -1345,67 +1410,6 @@ img#wpstats {
     margin: 0 0 3.25em;
   }
 }
-@media only screen and (min-width: 65em) {
-  .flexslider .slides img {
-    height: 400px;
-  }
-}
-.ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  *text-indent: -9999px;
-}
-
-.ir:before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 100%;
-}
-
-.hidden {
-  display: none!important;
-  visibility: hidden;
-}
-
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-.cf:before, .cf:after {
-  content: " ";
-  display: table;
-}
-
-.cf:after {
-  clear: both;
-}
-
-.cf {
-  *zoom: 1;
-}
-
 @media print {
   * {
     background: transparent!important;

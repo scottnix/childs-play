@@ -13,19 +13,19 @@ Tags: thematic, child-theme, responsive, mobile-first, SASS
 // load supporting files (compass, variables, mixins)
 // ==========================================================================
 
-@import 'css/base';
+@import 'scss/base';
 
 // ==========================================================================
-// normalize.css v1.0.1 http://necolas.github.com/normalize.css/
+// normalize.css v1.0.1 - necolas.github.com/normalize.css/
 // ==========================================================================
 
-@import 'css/normalize';
+@import 'scss/normalize';
 
-// better box model fix, http://paulirish.com/2012/box-sizing-border-box-ftw/
+// better box model - paulirish.com/2012/box-sizing-border-box-ftw/
 * { @include box-sizing(border-box); }
 
 // ==========================================================================
-// base styles
+// basic styles
 // ==========================================================================
 
 body,
@@ -35,45 +35,50 @@ textarea {
     font: $body-font-defaults;
 }
 body { background: $background-color; }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    @include text-shadow($shadow-1, $shadow-2, $shadow-3);
-    font-family: $header-font;
-    color: $header-color;
-}
 h1 {
+    @include text-shadow($shadow-1, $shadow-2, $shadow-3);
     margin: 0 0 0.5417em;
+    font-family: $header-font;
     font-size: 3em;
     line-height: 1.0833em;
+    color: $header-color;
 }
 h2 {
+    @include text-shadow($shadow-1, $shadow-2, $shadow-3);
     margin: 0 0 0.7222em;
+    font-family: $header-font;
     font-size: 2.25em;
     line-height: 1.4444em;
+    color: $header-color;
 }
 h3 {
+    @include text-shadow($shadow-1, $shadow-2, $shadow-3);
     margin: 0 0 0.8667em;
+    font-family: $header-font;
     font-size: 1.875em;
     line-height: 1.7333em;
+    color: $header-color;
 }
 h4 {
     margin: 0 0 1.0833em;
+    font-family: $header-font;
     font-size: 1.5em;
     line-height: 1.0833em;
+    color: $header-color;
 }
 h5 {
     margin: 0 0 1.1818em;
+    font-family: $header-font;
     font-size: 1.375em;
     line-height: 1.1818em;
+    color: $header-color;
 }
 h6 {
     margin: 0 0 1.4444em;
+    font-family: $header-font;
     font-size: 1.125em;
     line-height: 1.4444em;
+    color: $header-color;
 }
 a {
     @include transition-duration(.2s);
@@ -85,34 +90,35 @@ a {
     &:focus { color: $link-focus; }
 }
 p,
-ul,
-ol,
-dd,
 pre,
-hr,
-table,
 form,
 address,
 embed,
 select {
     margin: 0 0 1.625em;
 }
-ul { list-style: disc; }
-ul ul,
-ul ol,
-ol ul,
-ol ol {
-    margin-bottom: 0;
+ul {
+    margin: 0 0 1.625em;
+    list-style: disc;
 }
-ol { list-style-type: decimal;
+ol {
+    margin: 0 0 1.625em;
+    list-style-type: decimal;
     ol { list-style: upper-alpha;
         ol { list-style: lower-roman;
             ol { list-style: lower-alpha; }
         }
     }
 }
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+    margin-bottom: 0;
+}
 dl { margin: 0 1em; }
 dt { font-weight: bold; }
+dd { margin: 0 0 1.625em; }
 abbr, acronym { cursor: help; }
 ins {
     border-bottom: 1px solid $accents-color;
@@ -121,6 +127,7 @@ ins {
 textarea { resize: vertical; }
 caption { text-align: center; }
 table {
+    margin: 0 0 1.625em;
     border: 1px solid $accents-color;
     border-width: 1px 1px 0;
     text-align: left;
@@ -133,6 +140,7 @@ td {
 }
 hr {
     height: 1px;
+    margin: 0 0 1.625em;
     border: 0;
     background: $accents-color;
     color: $accents-color;
@@ -203,7 +211,7 @@ blockquote {
     width: 90%;
     margin: 0 auto 1.625em;
     background-color: $menu-background;
-    box-shadow: 0 0 4px 0 $box-transparency;
+    box-shadow: 0 0 8px 0 $box-transparency;
 }
 .menu-button {
     @include transition-duration(.2s);
@@ -354,6 +362,7 @@ blockquote {
     }
 }
 .entry-utility {
+    @include pie-clearfix;
     clear: both;
     font-size: 90%;
     color: $helper-text;
@@ -396,174 +405,12 @@ blockquote {
 // images
 // ==========================================================================
 
-.entry-content {
-    .wp-post-image {
-        float: right;
-        margin: 0 0 20px 1.625em;
-        padding: 5px;
-    }
-    img {
-        height: auto;
-        max-width: 100%;
-        margin: 0 0 1.625em;
-    }
-}
-.alignleft,
-img.alignleft {
-    float: left;
-    margin-right: 20px;
-}
-.alignright,
-img.alignright {
-    float: right;
-    margin-left: 20px;
-}
-.aligncenter,
-img.aligncenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    clear: both;
-}
-.wp-caption {
-    max-width: 96%;
-    margin-bottom: 1.625em;
-    padding: 9px 0 0;
-    text-align:center;
-    img { margin: 0; padding: 0; }
-    p.wp-caption-text {
-        margin: 0;
-        padding: 1.625em 5px;
-    }
-}
-.gallery {
-    display: block;
-    margin: 0 auto;
-    padding: 0 0 1.625em;
-    clear: both;
-    overflow: hidden;
-}
-.gallery-row {
-    display: block;
-    margin: 0;
-    clear: both;
-    overflow: hidden;
-}
-.gallery-item {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    overflow: hidden;
-    img {
-        height: auto;
-        max-width: 90%;
-        margin: 0 auto;
-        padding: 1%;
-        border: none !important;
-    }
-}
-.gallery-icon {
-    margin: 0 5px;
-    padding-top: 6px;
-}
-.gallery-caption { padding: 6px 6px 0; }
-.wp-smiley {
-    max-height: 12px;
-    margin: 0 !important;
-}
+@import 'scss/images';
 
 // comments
 // ==========================================================================
 
-#comments {
-    clear:both;
-    ol {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-}
-#comments-list {
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        li {
-            margin: 0 0 1.625em;
-            border: none;
-            background: rgba(0,0,0,.05);
-        }
-    }
-    ol {
-        margin: 0 0 1.625em;
-        border: 1px solid $accents-color;
-        border-bottom: none;
-
-    }
-    li {
-        position: relative;
-        padding: 1.625em 1.5em 0;
-        border-bottom: 1px solid $accents-color;
-        background: #fafafa;
-        .avatar {
-            position:absolute;
-            top: 1.625em;
-            left: 1.5em;
-            width: 36px;
-            height: 36px;
-        }
-        &.bypostauthor { background: #ffffcc; }
-    }
-    .thread-odd { background: #f1f1f1; }
-    .comment-author {
-        font-weight: bold;
-        padding: 0 0 0 46px;
-    }
-    .comment-meta { padding:0 0 9px 46px; }
-    #respond {
-        margin: 0 0 1.625em;
-        padding: 1.625em 1.5em;
-        border-bottom: 1px solid $accents-color;
-    }
-    ul #respond {
-        margin: 0;
-        border: 1px solid $accents-color;
-    }
-}
-.comment-reply-link {
-    padding: 0 0 1.625em;
-    text-align: right;
-}
-#trackbacks-list .comment-content {
-    position: absolute;
-    left: -9999px;
-}
-#respond {
-    position: relative;
-    margin-bottom: 1.625em;
-}
-#cancel-comment-reply-link {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-.form-section {
-    input {
-        width: 100%;
-        margin: 0 0 1.625em;
-    }
-    textarea { width: 100%; }
-}
-#form-allowed-tags {
-    font-size: 90%;
-    color: $helper-text;
-    p { margin: 0; }
-    span { font-style: italic; }
-}
-.form-submit {
-    padding: 1.625em 0 0;
-    text-align: right;
-}
+@import 'scss/comments';
 
 // navigational
 // ==========================================================================
@@ -627,7 +474,7 @@ input[type="submit"]:hover {
     section {
         list-style: none;
         padding: 0;
-        ul { margin: 0 0 1.625em 20px;
+        ul { margin: 0 0 1.625em 1em;
             li { padding: 1px 0; }
             ul { margin-bottom: 0; }
         }
@@ -681,8 +528,10 @@ input[type="submit"]:hover {
     clear: both;
 }
 
-// page templates
+// overriding css above - specific pages, templates
+// ==========================================================================
 
+// page templates
 .page-template-template-page-fullwidth-php {
     #container {
         width: 100%;
@@ -695,7 +544,6 @@ input[type="submit"]:hover {
 }
 
 // attachments
-
 .attachment-jpeg,
 .attachment-png {
     #content,
@@ -706,279 +554,31 @@ input[type="submit"]:hover {
     .main-aside { display: none; }
 }
 
-// internet explorer specific
+// internet explorer (old IE, 6, 7 and 8 fixes)
 // ==========================================================================
 
-// less than IE 9 (6,7,8)
-.lt-ie9 {
-    #branding,
-    #access,
-    #main,
-    #subsidiary,
-    #siteinfo {
-        width: 640px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    #access { background-color: transparent; }
-}
+@import 'scss/internet-explorer';
 
-// less than IE 8 (6,7)
-.lt-ie8 {
-    .menu-title { float: left; }
-    .menu-button { padding-bottom: 1em; }
-    .access-nav ul {
-        list-style-type: none;
-        // fix fo IE7 gap bug on list items
-        li a {
-            display: inline-block;
-            width: 80%;
-        }
-    }
-    // fix for IE7, no box model so you need to account for padding
-    .flex-caption { width: 96%; }
-}
-
-// plugin specific
+// plugins
 // ==========================================================================
 
-// wp stats smiley
-img#wpstats {
-    width: 0;
-    height: 0;
-    overflow: hidden;
-}
+@import 'scss/plugins';
 
-// flexslider
-.flexslider {
-    margin-bottom: 1.625em;
-    border: none;
-    background: none;
-    .entry-title { display: none; }
-    .slides {
-        box-shadow: 0 0 8px $box-transparency;
-        img { height: 300px; }
-    }
-}
-.flex-control-nav { display: none; }
-.flex-direction-nav li .prev { left: -15px; }
-.flex-direction-nav li .next { right: -15px; }
-.flex-caption {
-    width: 100%;
-    background: #010101;
-    font-size: 1em;
-    a { color: $menu-link-color; }
-    span {  }
-}
-
+// helper classes - html5boilerplate.com
 // ==========================================================================
+
+@import 'scss/helper-classes';
+
 // media queries
 // ==========================================================================
 
+@import 'scss/media-queries';
 
-@media only screen and (min-width: 45em) {
-    blockquote {
-        &.left {
-            width: 33%;
-            float: left;
-            margin-left: 0;
-            margin-right: 1em;
-        }
-        &.right {
-            width: 33%;
-            float: right;
-            margin-left: 1em;
-            margin-right: 0;
-        }
-    }
-    #wrapper { background: url(images/bg-tiles.png); }
-    #branding,
-    #access,
-    #main,
-    #siteinfo,
-    .sub-wrapper {
-        max-width: 1140px;
-    }
-    #header-widget {
-        position: absolute;
-        top: 1.625em;
-        right: 0;
-        margin: 0;
-        ul,
-        address {
-            text-align: right;
-        }
-    }
-    .js .access-nav { display: block; }
-    .menu-button { display: none; }
-    .sf-menu {
-        li {
-            position: relative;
-            float: left;
-            background: $menu-background;
-            border-bottom: none;
-            &:hover {
-                ul {
-                    left: 0;
-                    top: 2.6em;
-                    z-index: 99;
-                }
-            }
-            &.has-flyout:after { border-color: #fff transparent transparent; }
-
-            a {
-               display: block;
-                position: relative;
-                text-decoration: none;
-                color: $menu-link-color;
-                padding: 0.5em 0.75em;
-                &:focus, &:hover, &:active {
-                    color: $menu-link-hover;
-                    padding: 0.5em 0.75em;
-                    outline: 0;
-                }
-
-            }
-        }
-        > li.has-flyout a { padding-right: 1.75em; }
-        .sub-menu, .children {
-            position: absolute;
-            top: -999em;
-            width: 10em;
-            li {
-                width: 100%;
-                background: #ddd;
-                a {
-                    padding: 0.5em 0.75em;
-                    color: $menu-background;
-                    &:hover {
-                        background: $transparency;
-                        padding: 0.5em 0.75em;
-                    }
-                }
-                li {
-                    a {
-                        padding: 0.5em 0.75em;
-                        &:hover {
-                            padding: 0.5em 0.75em;
-                        }
-                    }
-                    li {
-                        a {
-                            padding: 0.5em 0.75em;
-                            &:hover {
-                                padding: 0.5em 0.75em;
-                            }
-                        }
-                    }
-                }
-            &.has-flyout:after { border-color: #000 transparent transparent; }
-            }
-        }
-        .current-menu-item a,
-        .current-menu-parent a,
-        .current-menu-ancestor a,
-        .current-post-ancestor a,
-        .current_page_item a,
-        .current_page_ancestor a,
-        .current_page_parent a {
-           // nothing yet...
-        }
-        li:hover li ul { top: -999em; }
-        li li:hover ul {
-            left: 10em;
-            top: 0;
-        }
-        li li:hover li ul { top: -999em; }
-        li li li:hover ul {
-            left: 10em;
-            top: 0;
-        }
-    }
-    #main {
-        padding: 1.625em 2em 0;
-        background: $background-color;
-        box-shadow: 0 0 8px $box-transparency;
-    }
-    #container {
-        float: left;
-        width: 65.4%;
-        margin-right: 3.8%;
-    }
-    .entry-utility ul {
-        float: left;
-        width: 50%;
-    }
-    .main-aside,
-    #header-widget {
-        float: right;
-        width: 30.8%;
-        clear: right;
-    }
-    #primary {
-        box-shadow: 0 0 4px 0 $box-transparency;
-    }
-    #primary,
-    #secondary {
-        section,
-        .xoxo { padding: 0 1em; }
-    }
-    .sub-wrapper {
-        width: 90%;
-        margin: 0 auto;
-    }
-    #subsidiary {
-        width: auto;
-        .aside {
-            float: left;
-            width: 30.8%;
-            margin: 0 3.8% 0 0; }
-        #third { margin: 0; }
-    }
-    .archive,
-    .attachment,
-    .search {
-    }
-    .navigation {
-        overflow: hidden;
-        margin: 0 0 1.625em 0;
-        .meta-nav { font-style: normal; }
-    }
-    .nav-previous { float: left; }
-    .nav-next {
-        float: right;
-        text-align: right;
-    }
-    .content-column {
-        width: 45%;
-        margin: 0 0 1.625em;
-    }
-    .page-template-template-page-fullwidth-php #comments,
-    .attachment-jpeg #comments,
-    .attachment-png #comments {
-        width: 65.4%;
-    }
-    .flexslider { margin: 0 0 3.25em; }
-}
-
-@media only screen and (min-width: 65em) {
-    .flexslider .slides img { height: 400px; }
-}
-
-@media only screen and (min-width: 75em) {
-
-}
-
-// html5boilerplate non-semantic helper classes
-// ==========================================================================
-
-@import 'css/html5boilerplate-helper-classes';
-
-// html5boilerplate print styles
+// print styles - html5boilerplate.com
 // ==========================================================================
 
 @media print {
-    @import 'css/html5boilerplate-print-styles';
+    @import 'scss/print-styles';
     // custom additions
     .aside,
     #access
