@@ -8,7 +8,7 @@
 
 // recreates the doctype section, html5boilerplate.com style with conditional classes
 // the priority of 11 is added to override the priority of 10 on the Thematic HTML5 Plugin
-// http://scottnix.com/html5-header-with-thematic/
+// reference - scottnix.com/html5-header-with-thematic/
 function childtheme_create_doctype() {
     $content = "<!doctype html>" . "\n";
     $content .= '<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" dir="' . get_bloginfo ('text_direction') . '" lang="'. get_bloginfo ('language') . '"> <![endif]-->' . "\n";
@@ -39,7 +39,7 @@ add_filter('thematic_create_contenttype', 'childtheme_create_contenttype', 11);
 
 
 // remove the index and follow tags from header since it is browser default.
-// http://scottnix.com/polishing-thematics-head/
+// reference - scottnix.com/polishing-thematics-head/
 function childtheme_create_robots($content) {
     global $paged;
     if (thematic_seo()) {
@@ -116,106 +116,11 @@ add_action('wp_enqueue_scripts', 'childtheme_script_manager');
 
 
 
-// had to add this to get a div around the titles, mostly for correct scaling on em paddings.
-// also beefed up to add more robust style options with spans which all around gives you tons of title styling options
-function childtheme_override_page_title() {
-    global $post;
-        $content = "\t\t\t\t";
-        $content .= '<div class="title-wrap">';
-        if (is_attachment()) {
-                $content .= '<h2 class="page-title"><span><a href="';
-                $content .= apply_filters('the_permalink',get_permalink($post->post_parent));
-                $content .= '" rev="attachment"><span class="meta-nav">&laquo; </span><span>';
-                $content .= get_the_title($post->post_parent);
-                $content .= '</span></a></span></h2>';
-        } elseif (is_author()) {
-                $content .= '<h1 class="page-title author"><span>';
-                $author = get_the_author_meta( 'display_name', $post->post_author );
-                $content .= __('Author Archives:', 'thematic');
-                $content .= ' <span>';
-                $content .= $author;
-                $content .= '</span></span></h1>';
-        } elseif (is_category()) {
-                $content .= '<h1 class="page-title"><span>';
-                $content .= __('Category Archives:', 'thematic');
-                $content .= ' <span>';
-                $content .= single_cat_title('', FALSE);
-                $content .= '</span></span></h1>' . "\n";
-                $content .= "\n\t\t\t\t" . '<div class="archive-meta">';
-                if ( !(''== category_description()) ) : $content .= apply_filters('archive_meta', category_description()); endif;
-                $content .= '</div>';
-        } elseif (is_search()) {
-                $content .= '<h1 class="page-title"><span>';
-                $content .= __('Search Results for:', 'thematic');
-                $content .= ' <span id="search-terms">';
-                $content .= get_search_query();
-                $content .= '</span></span></h1>';
-        } elseif (is_tag()) {
-                $content .= '<h1 class="page-title"><span>';
-                $content .= __('Tag Archives:', 'thematic');
-                $content .= ' <span>';
-                $content .= ( single_tag_title( '', false ));
-                $content .= '</span></span></h1>';
-        } elseif (is_tax()) {
-                global $taxonomy;
-                $content .= '<h1 class="page-title"><span>';
-                $tax = get_taxonomy($taxonomy);
-                $content .= $tax->labels->singular_name . ' ';
-                $content .= __('Archives:', 'thematic');
-                $content .= ' <span>';
-                $content .= thematic_get_term_name();
-                $content .= '</span></span></h1>';
-        } elseif (is_post_type_archive() && is_archive() ) {
-                $content .= '<h1 class="page-title"><span>';
-                $post_type_obj = get_post_type_object( get_post_type() );
-                $post_type_name = $post_type_obj->labels->singular_name;
-                $content .= __('Archives:', 'thematic');
-                $content .= ' <span>';
-                $content .= $post_type_name;
-                $content .= '</span></span></h1>';
-        } elseif (is_day()) {
-                $content .= '<h1 class="page-title"><span>';
-                $content .= sprintf(__('Daily Archives: <span>%s</span>', 'thematic'), get_the_time(get_option('date_format')));
-                $content .= '</span></h1>';
-        } elseif (is_month()) {
-                $content .= '<h1 class="page-title"><span>';
-                $content .= sprintf(__('Monthly Archives: <span>%s</span>', 'thematic'), get_the_time('F Y'));
-                $content .= '</span></h1>';
-        } elseif (is_year()) {
-                $content .= '<h1 class="page-title"><span>';
-                $content .= sprintf(__('Yearly Archives: <span>%s</span>', 'thematic'), get_the_time('Y'));
-                $content .= '</span></h1>';
-        }
-        $content .= "\n";
-        $content .= "</div> <!-- .title-wrap -->";
-    echo apply_filters('thematic_page_title', $content);
-}
-
-
-
 // add favicon to site, add 16x16 or 32x32 "favicon.ico" image to child themes main folder
 function childtheme_add_favicon() { ?>
 <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/favicon.ico" />
 <?php }
 add_action('wp_head', 'childtheme_add_favicon');
-
-
-
-// register two additional custom menu slots
-function childtheme_register_menus() {
-    if ( function_exists( 'register_nav_menu' )) {
-        register_nav_menu( 'secondary-menu', 'Secondary Menu' );
-        register_nav_menu( 'tertiary-menu', 'Tertiary Menu' );
-    }
-}
-add_action('init', 'childtheme_register_menus');
-
-
-
-// completely remove nav above functionality
-function childtheme_override_nav_above() {
-    // silence
-}
 
 
 
@@ -306,14 +211,107 @@ add_filter('thematic_widgetized_areas', 'childtheme_hide_areas');
 
 
 
+// register two additional custom menu slots
+function childtheme_register_menus() {
+    if ( function_exists( 'register_nav_menu' )) {
+        register_nav_menu( 'secondary-menu', 'Secondary Menu' );
+        register_nav_menu( 'tertiary-menu', 'Tertiary Menu' );
+    }
+}
+add_action('init', 'childtheme_register_menus');
+
+
+
+// had to add .title-wrap div around the titles, mostly for correct scaling on em paddings.
+// also beefed up to add more robust style options with spans, which all around gives you tons of title styling options
+function childtheme_override_page_title() {
+    global $post;
+        $content = "\t\t\t\t";
+        $content .= '<div class="title-wrap">';
+        if (is_attachment()) {
+                $content .= '<h2 class="page-title"><span><a href="';
+                $content .= apply_filters('the_permalink',get_permalink($post->post_parent));
+                $content .= '" rev="attachment"><span class="meta-nav">&laquo; </span><span>';
+                $content .= get_the_title($post->post_parent);
+                $content .= '</span></a></span></h2>';
+        } elseif (is_author()) {
+                $content .= '<h1 class="page-title author"><span>';
+                $author = get_the_author_meta( 'display_name', $post->post_author );
+                $content .= __('Author Archives:', 'thematic');
+                $content .= ' <span>';
+                $content .= $author;
+                $content .= '</span></span></h1>';
+        } elseif (is_category()) {
+                $content .= '<h1 class="page-title"><span>';
+                $content .= __('Category Archives:', 'thematic');
+                $content .= ' <span>';
+                $content .= single_cat_title('', FALSE);
+                $content .= '</span></span></h1>' . "\n";
+                $content .= "\n\t\t\t\t" . '<div class="archive-meta">';
+                if ( !(''== category_description()) ) : $content .= apply_filters('archive_meta', category_description()); endif;
+                $content .= '</div>';
+        } elseif (is_search()) {
+                $content .= '<h1 class="page-title"><span>';
+                $content .= __('Search Results for:', 'thematic');
+                $content .= ' <span id="search-terms">';
+                $content .= get_search_query();
+                $content .= '</span></span></h1>';
+        } elseif (is_tag()) {
+                $content .= '<h1 class="page-title"><span>';
+                $content .= __('Tag Archives:', 'thematic');
+                $content .= ' <span>';
+                $content .= ( single_tag_title( '', false ));
+                $content .= '</span></span></h1>';
+        } elseif (is_tax()) {
+                global $taxonomy;
+                $content .= '<h1 class="page-title"><span>';
+                $tax = get_taxonomy($taxonomy);
+                $content .= $tax->labels->singular_name . ' ';
+                $content .= __('Archives:', 'thematic');
+                $content .= ' <span>';
+                $content .= thematic_get_term_name();
+                $content .= '</span></span></h1>';
+        } elseif (is_post_type_archive() && is_archive() ) {
+                $content .= '<h1 class="page-title"><span>';
+                $post_type_obj = get_post_type_object( get_post_type() );
+                $post_type_name = $post_type_obj->labels->singular_name;
+                $content .= __('Archives:', 'thematic');
+                $content .= ' <span>';
+                $content .= $post_type_name;
+                $content .= '</span></span></h1>';
+        } elseif (is_day()) {
+                $content .= '<h1 class="page-title"><span>';
+                $content .= sprintf(__('Daily Archives: <span>%s</span>', 'thematic'), get_the_time(get_option('date_format')));
+                $content .= '</span></h1>';
+        } elseif (is_month()) {
+                $content .= '<h1 class="page-title"><span>';
+                $content .= sprintf(__('Monthly Archives: <span>%s</span>', 'thematic'), get_the_time('F Y'));
+                $content .= '</span></h1>';
+        } elseif (is_year()) {
+                $content .= '<h1 class="page-title"><span>';
+                $content .= sprintf(__('Yearly Archives: <span>%s</span>', 'thematic'), get_the_time('Y'));
+                $content .= '</span></h1>';
+        }
+        $content .= "\n";
+        $content .= "</div> <!-- .title-wrap -->";
+    echo apply_filters('thematic_page_title', $content);
+}
+
+
+
+// completely remove nav above functionality
+function childtheme_override_nav_above() {
+    // silence
+}
+
+
+
 // cuts the default size of the search input field down to cut overlap
 // css sizes this fine, but it could be placed in things other than aside, this is back up. ;)
 function childtheme_thematic_search_form_length() {
     return "16";
 }
 add_filter('thematic_search_form_length', 'childtheme_thematic_search_form_length');
-
-
 
 // change the default search box text
 function childtheme_search_field_value() {
@@ -323,63 +321,42 @@ add_filter('search_field_value', 'childtheme_search_field_value');
 
 
 
-// featured image size (on anyting with excerpt?)
-function childtheme_post_thumb_size($size) {
-    $size = array(200,200);
-    return $size;
-}
-add_filter('thematic_post_thumb_size', 'childtheme_post_thumb_size');
-
-
-
-/*
-// load google analytics
-// optimized version http://mathiasbynens.be/notes/async-analytics-snippet
-function snix_google_analytics(){ ?>
-<script>var _gaq=[['_setAccount','UA-xxxxxxx-x'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
-<?php }
-add_action('wp_footer', 'snix_google_analytics');
-*/
-
-
-// example of changing up the display of the entry-utility for a different look
-function childtheme_override_postfooter() {
-
-        $post_type = get_post_type();
-        $post_type_obj = get_post_type_object($post_type);
-
-        // Check for "Page" post-type and logged in user to show edit link
-        if ( $post_type == 'page' && current_user_can('edit_posts') ) {
-            $postfooter = '';
-        // Display nothing for logged out users on a "Page" post-type
-        } elseif ( $post_type == 'page' ) {
-            $postfooter = '';
-        // For post-types other than "Pages" press on
-        } else {
-            $postfooter = '<footer class="entry-utility cf">';
-            $postfooter .= '<ul class="main-utilities">';
-            $postfooter .= '<li>' . thematic_postmeta_authorlink() . '</li>';
-            $postfooter .= '<li>' . thematic_postmeta_entrydate() . '</li>';
-            $postfooter .= '<li>' . thematic_postfooter_postcomments() . '</li>';
-            $postfooter .= '</ul>';
-            $postfooter .= '<ul class="sub-utilities">';
-            $postfooter .= '<li>' . thematic_postfooter_postcategory() . '</li>';
-            $postfooter .= '<li>' . thematic_postfooter_posttags() . '</li>';
-                if ( is_user_logged_in() ) {
-                $postfooter .= '<li>' . thematic_postfooter_posteditlink() . '</li>';
-                }
-            $postfooter .= '</ul>';
-            $postfooter .= "\n\n\t\t\t\t\t</footer><!-- .entry-utility -->\n";
-        }
-        // Put it on the screen
-        echo apply_filters( 'thematic_postfooter', $postfooter ); // Filter to override default post footer
-    }
-
+// kill the post header information, loading this below in the post footer
 function childtheme_override_postheader_postmeta() {
     // silence!
 }
 
+// example of changing up the display of the entry-utility for a different look
+function childtheme_override_postfooter() {
+    $post_type = get_post_type();
+    $post_type_obj = get_post_type_object($post_type);
 
+    // Check for "Page" post-type and logged in user to show edit link
+    if ( $post_type == 'page' && current_user_can('edit_posts') ) {
+        $postfooter = '';
+    // Display nothing for logged out users on a "Page" post-type
+    } elseif ( $post_type == 'page' ) {
+        $postfooter = '';
+    // For post-types other than "Pages" press on
+    } else {
+        $postfooter = '<footer class="entry-utility">';
+        $postfooter .= '<ul class="main-utilities">';
+        $postfooter .= '<li>' . thematic_postmeta_authorlink() . '</li>';
+        $postfooter .= '<li>' . thematic_postmeta_entrydate() . '</li>';
+        $postfooter .= '<li>' . thematic_postfooter_postcomments() . '</li>';
+        $postfooter .= '</ul>';
+        $postfooter .= '<ul class="sub-utilities">';
+        $postfooter .= '<li>' . thematic_postfooter_postcategory() . '</li>';
+        $postfooter .= '<li>' . thematic_postfooter_posttags() . '</li>';
+            if ( is_user_logged_in() ) {
+            $postfooter .= '<li>' . thematic_postfooter_posteditlink() . '</li>';
+            }
+        $postfooter .= '</ul>';
+        $postfooter .= "\n\n\t\t\t\t\t</footer><!-- .entry-utility -->\n";
+    }
+    // Put it on the screen
+    echo apply_filters( 'thematic_postfooter', $postfooter ); // Filter to override default post footer
+}
 
 // remove unneeded code from posttags
 function childtheme_override_postfooter_postcategory() {
@@ -401,8 +378,6 @@ function childtheme_override_postfooter_postcategory() {
     return apply_filters('thematic_postfooter_postcategory',$postcategory);
 }
 
-
-
 // remove unneeded code from posttags
 function childtheme_override_postfooter_posttags() {
     if ( is_single() && !is_object_in_taxonomy( get_post_type(), 'category' ) ) {
@@ -422,18 +397,30 @@ function childtheme_override_postfooter_posttags() {
 
 
 
-// post thumbnail sizing for the flexslider
-// images need to be the same size, 750 is about the max visible width, unless you use full page
-add_theme_support( 'post-thumbnails' );
-if ( function_exists( 'add_image_size' ) ) {
-    add_image_size( 'featured-slider', 750, 425 ); // width and height
+// featured image size (on anything with excerpt)
+function childtheme_post_thumb_size($size) {
+    $size = array(200,200);
+    return $size;
+}
+add_filter('thematic_post_thumb_size', 'childtheme_post_thumb_size');
+
+// super hacky way to remove width and height from images, better for slider... but I don't like this :P
+// reference - css-tricks.com/snippets/wordpress/remove-width-and-height-attributes-from-inserted-images/
+add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
+add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
+
+function remove_width_attribute( $html ) {
+   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+   return $html;
 }
 
+// post thumbnail sizing for the flexslider, best if 750px by 425 px to look decent.
+add_image_size( 'featured-slider', 750, 425 ); // width and height
+
 // add flexslider to blog home if it has sticky posts
-// http://www.woothemes.com/flexslider/
+// reference - woothemes.com/flexslider/
 function childtheme_flexslider_slider() {
-    if ( is_home() && is_sticky() ) {
-        ?>
+    if ( is_home() && is_sticky() ) { ?>
         <div class="flex-container">
             <div class="flexslider">
                 <h2 class="entry-title">Featured</h2>
@@ -450,8 +437,7 @@ function childtheme_flexslider_slider() {
                 <?php
                 endwhile;
                 endif;
-                    wp_reset_query();
-                ?>
+                    wp_reset_query(); ?>
                 </ul>
             </div>
         </div>
@@ -460,7 +446,7 @@ function childtheme_flexslider_slider() {
 add_action('thematic_above_indexloop', 'childtheme_flexslider_slider');
 
 // add flexslider jQuery script only on home if it has sticky posts
-// http://www.woothemes.com/flexslider/
+// reference - woothemes.com/flexslider/
 function childtheme_flexslider_script() {
 if ( is_home() && is_sticky() ) { ?>
 <script>jQuery(window).load(function() { jQuery(".flexslider").flexslider(); });</script>
@@ -470,7 +456,7 @@ add_action('wp_head', 'childtheme_flexslider_script');
 
 
 
-//override the index loop and remove the sticky posts, which will now be handled by the slider
+// override the index loop and remove the sticky posts, which will now be handled by the slider
 function childtheme_override_index_loop() {
 
     // Count the number of posts so we can insert a widgetized area
@@ -524,39 +510,45 @@ function childtheme_override_access() { ?>
     <div id="access">
         <div class="menu-button"><span class="menu-title">Menu</span><div class="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div></div>
         <div class="access-nav" role="navigation">
-               <?php
-                if ( ( function_exists("has_nav_menu") ) && ( has_nav_menu( apply_filters('thematic_primary_menu_id', 'primary-menu') ) ) ) {
-                    echo  wp_nav_menu(thematic_nav_menu_args());
-                } else {
-                    echo  thematic_add_menuclass(wp_page_menu(thematic_page_menu_args()));
-                }
-                ?>
+           <?php
+            if ( ( function_exists("has_nav_menu") ) && ( has_nav_menu( apply_filters('thematic_primary_menu_id', 'primary-menu') ) ) ) {
+                echo  wp_nav_menu(thematic_nav_menu_args());
+            } else {
+                echo  thematic_add_menuclass(wp_page_menu(thematic_page_menu_args()));
+            }
+            ?>
         </div>
     </div><!-- #access -->
     <?php
 }
 
-// add classes to access menu "has-flyout and active" to items with sub menus, for indicator arrows
-// https://github.com/petskratt/foundation-base/blob/master/foundation-base.php
-function childtheme_menu_class($items) {
-    function has_Sub($menu_item_id, &$items) {
-            foreach ($items as $item) {
-                if ($item->menu_item_parent && $item->menu_item_parent==$menu_item_id) {
-                    return true;
-                }
-            }
-            return false;
-        }
-    foreach ($items as &$item) {
-        if ( has_Sub($item->ID, $items) ) {
-            $item->classes[] = 'has-flyout';
-            $item->hasFlyout = true;
-        }
 
-        if (in_array ('current-menu-item', $item->classes) || in_array ('current-menu-ancestor', $item->classes)) {
-            $item->classes[] = 'active';
+
+// add class "has-flyout" to items with sub menus, for indicator arrows
+// reference - codex.wordpress.org/Function_Reference/wp_nav_menu
+function add_menu_parent_class( $items ) {
+    $parents = array();
+    foreach ( $items as $item ) {
+        if ( $item->menu_item_parent && $item->menu_item_parent > 0 ) {
+            $parents[] = $item->menu_item_parent;
+        }
+    }
+    foreach ( $items as $item ) {
+        if ( in_array( $item->ID, $parents ) ) {
+            $item->classes[] = 'has-flyout';
         }
     }
     return $items;
 }
-add_filter('wp_nav_menu_objects', 'childtheme_menu_class');
+add_filter( 'wp_nav_menu_objects', 'add_menu_parent_class' );
+
+
+
+/*
+// load google analytics, optimized version - mathiasbynens.be/notes/async-analytics-snippet
+// a lot of peopole also use the Google Analytics Plugin - yoast.com/wordpress/google-analytics/
+function snix_google_analytics(){ ?>
+<script>var _gaq=[['_setAccount','UA-xxxxxxx-x'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<?php }
+add_action('wp_footer', 'snix_google_analytics');
+*/
