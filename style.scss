@@ -95,14 +95,14 @@ form,
 address,
 embed,
 select {
-    margin: 0 0 1.625em;
+    margin: 0 0 $spacing;
 }
 ul {
-    margin: 0 0 1.625em;
+    margin: 0 0 $spacing;
     list-style: disc;
 }
 ol {
-    margin: 0 0 1.625em;
+    margin: 0 0 $spacing;
     list-style-type: decimal;
     ol { list-style: upper-alpha;
         ol { list-style: lower-roman;
@@ -118,7 +118,7 @@ ol ol {
 }
 dl { margin: 0 1em; }
 dt { font-weight: bold; }
-dd { margin: 0 0 1.625em; }
+dd { margin: 0 0 $spacing; }
 abbr, acronym { cursor: help; }
 ins {
     border-bottom: 1px solid $accents-color;
@@ -127,7 +127,7 @@ ins {
 textarea { resize: vertical; }
 caption { text-align: center; }
 table {
-    margin: 0 0 1.625em;
+    margin: 0 0 $spacing;
     border: 1px solid $accents-color;
     border-width: 1px 1px 0;
     text-align: left;
@@ -140,7 +140,7 @@ td {
 }
 hr {
     height: 1px;
-    margin: 0 0 1.625em;
+    margin: 0 0 $spacing;
     border: 0;
     background: $accents-color;
     color: $accents-color;
@@ -182,7 +182,7 @@ blockquote {
     position: relative;
     width: 90%;
     margin: 0 auto;
-    padding: 1.625em 0;
+    padding: $spacing 0;
 }
 #blog-title {
     @extend h1;
@@ -198,7 +198,7 @@ blockquote {
     text-shadow: none;
 }
 #header-widget {
-    margin: 1.625em 0 0;
+    margin: $spacing 0 0;
     .widgettitle { display: none; }
     ul,
     address,
@@ -209,7 +209,7 @@ blockquote {
 #access {
     @include pie-clearfix;
     width: 90%;
-    margin: 0 auto 1.625em;
+    margin: 0 auto $spacing;
     background-color: $menu-background;
     box-shadow: 0 0 8px 0 $box-transparency;
 }
@@ -326,7 +326,7 @@ blockquote {
 }
 #container {
     width: 100%;
-    margin: 0 0 1.625em;
+    margin: 0 0 $spacing;
 }
 #content { width: 100%; }
 .page-title {
@@ -336,9 +336,9 @@ blockquote {
     }
     .meta-nav { font-style: normal; }
 }
-.hentry { margin: 0 0 1.625em; }
+.hentry { margin: 0 0 $spacing; }
 .sticky {
-    padding: 1.625em;
+    padding: $spacing;
     background: $transparency;
 }
 .entry-title {
@@ -348,7 +348,7 @@ blockquote {
     }
 }
 .entry-meta {
-    margin: 0 0 1.625em;
+    margin: 0 0 $spacing;
     font-size: 90%;
     color: $helper-text;
     a {
@@ -394,7 +394,7 @@ blockquote {
     overflow: hidden;
 }
 #author-info {
-    margin: 0 0 1.625em;
+    margin: 0 0 $spacing;
     overflow: hidden;
     .avatar {
         margin: 0 1em 0;
@@ -417,7 +417,7 @@ blockquote {
 
 .page-link,
 .comment-navigation {
-    margin: 0 0 1.625em;
+    margin: 0 0 $spacing;
     clear: both;
     font-weight: bold;
     word-spacing: 0.5em;
@@ -431,7 +431,7 @@ blockquote {
     a,
     span { margin-right: 0.5em; }
 }
-.paginated-comments-links { margin-top: 1.625em; }
+.paginated-comments-links { margin-top: $spacing; }
 .button,
 input[type="submit"] {
     position: relative;
@@ -474,7 +474,7 @@ input[type="submit"]:hover {
     section {
         list-style: none;
         padding: 0;
-        ul { margin: 0 0 1.625em 1em;
+        ul { margin: 0 0 $spacing 1em;
             li { padding: 1px 0; }
             ul { margin-bottom: 0; }
         }
@@ -495,9 +495,9 @@ input[type="submit"]:hover {
     }
     #searchform input { width: 100%; }
 }
-.widget_tag_cloud { margin: 0 0 1.625em; }
+.widget_tag_cloud { margin: 0 0 $spacing; }
 #searchsubmit { display: none; }
-#primary { margin-bottom: 1.625em; }
+#primary { margin-bottom: $spacing; }
 .widgettitle {
     @extend h4;
     border-bottom: 1px solid $accents-color;
@@ -506,15 +506,15 @@ input[type="submit"]:hover {
         &:hover { color: $link-hover; }
     }
 }
-#content .aside { margin: 0 0 1.625em; }
+#content .aside { margin: 0 0 $spacing; }
 #footer {
-    margin-top: 1.625em;
+    margin-top: $spacing;
     clear: both;
 }
 #subsidiary {
     width: 90%;
     margin: 0 auto;
-    padding: 1.625em 0 0;
+    padding: $spacing 0 0;
     #footer-widget {
         width: 100%;
         margin :0;
@@ -524,7 +524,7 @@ input[type="submit"]:hover {
 #siteinfo {
     width: 90%;
     margin: 0 auto;
-    padding: 1.625em 0;
+    padding: $spacing 0;
     clear: both;
 }
 
