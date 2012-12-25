@@ -1,0 +1,27 @@
+// less than IE 9 (6,7,8)
+.lt-ie9 {
+    #branding,
+    #access,
+    #main,
+    #subsidiary,
+    #siteinfo {
+        width: 640px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    #access { background-color: transparent; }
+}
+
+// less than IE 8 (6,7)
+.lt-ie8 {
+    .menu-title { float: left; }
+    .menu-button { padding-bottom: 1em; }
+    .access-nav ul {
+        list-style-type: none;
+        // fix for IE7 bug that causes gaps on list items
+        li a {
+            display: inline-block;
+            width: 80%;
+        }
+    }
+}

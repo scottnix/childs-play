@@ -1,0 +1,33 @@
+// wp stats smiley
+img#wpstats {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+// flexslider
+.flexslider {
+    margin-bottom: 1.625em;
+    border: none;
+    background: none;
+    .entry-title { display: none; }
+    .slides {
+        box-shadow: 0 0 8px $box-transparency;
+        img { height: auto; }
+    }
+}
+.flex-control-nav { display: none; }
+.flex-direction-nav li .prev { left: -15px; }
+.flex-direction-nav li .next { right: -15px; }
+.flex-caption {
+    width: 100%;
+    padding: 0;
+    background: #010101;
+    font-size: 1em;
+    a {
+        display: block;
+        padding: 1em;
+        color: $menu-link-color;
+    }
+    span {  }
+}
