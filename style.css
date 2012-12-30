@@ -686,13 +686,9 @@ blockquote span {
   clear: both;
 }
 
-.content-column {
-  width: 100%;
-  float: left;
-}
-
 #links-page,
 #archives-page {
+  padding: 0;
   list-style: none;
   overflow: hidden;
 }
@@ -1396,6 +1392,7 @@ img#wpstats {
   }
 
   .content-column {
+    float: left;
     width: 45%;
     margin: 0 0 1.625em;
   }

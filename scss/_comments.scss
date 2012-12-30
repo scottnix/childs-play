@@ -12,24 +12,24 @@
         margin: 0;
         padding: 0;
         li {
-            margin: 0 0 1.625em;
+            margin: 0 0 $spacing;
             border: none;
             background: rgba(0,0,0,.05);
         }
     }
     ol {
-        margin: 0 0 1.625em;
+        margin: 0 0 $spacing;
         border: 1px solid $accents-color;
         border-bottom: none;
     }
     li {
         position: relative;
-        padding: 1.625em 1.5em 0;
+        padding: $spacing 1.5em 0;
         border-bottom: 1px solid $accents-color;
         background: #fafafa;
         .avatar {
             position:absolute;
-            top: 1.625em;
+            top: $spacing;
             left: 1.5em;
             width: 2.5em;
             height: 2.5em;
@@ -43,8 +43,8 @@
     }
     .comment-meta { padding:0 0 0.5em 3em; }
     #respond {
-        margin: 0 0 1.625em;
-        padding: 1.625em 1.5em;
+        margin: 0 0 $spacing;
+        padding: $spacing 1.5em;
         border-bottom: 1px solid $accents-color;
     }
     ul #respond {
@@ -53,7 +53,7 @@
     }
 }
 .comment-reply-link {
-    padding: 0 0 1.625em;
+    padding: 0 0 $spacing;
     text-align: right;
 }
 #trackbacks-list .comment-content {
@@ -62,7 +62,7 @@
 }
 #respond {
     position: relative;
-    margin-bottom: 1.625em;
+    margin-bottom: $spacing;
 }
 #cancel-comment-reply-link {
     position: absolute;
@@ -72,7 +72,7 @@
 .form-section {
     input {
         width: 100%;
-        margin: 0 0 1.625em;
+        margin: 0 0 $spacing;
     }
     textarea { width: 100%; }
 }
@@ -83,6 +83,6 @@
     span { font-style: italic; }
 }
 .form-submit {
-    padding: 1.625em 0 0;
+    padding: $spacing 0 0;
     text-align: right;
 }

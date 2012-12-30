@@ -384,12 +384,9 @@ blockquote {
     display: block;
     clear: both;
 }
-.content-column {
-    width: 100%;
-    float: left;
-}
 #links-page,
 #archives-page {
+    padding: 0;
     list-style: none;
     overflow: hidden;
 }

@@ -23,7 +23,7 @@
     }
     #header-widget {
         position: absolute;
-        top: 1.625em;
+        top: $spacing;
         right: 0;
         margin: 0;
         ul,
@@ -118,7 +118,7 @@
         }
     }
     #main {
-        padding: 1.625em 2em 0;
+        padding: $spacing 2em 0;
         background: $background-color;
         box-shadow: 0 0 8px $box-transparency;
     }
@@ -128,7 +128,7 @@
         margin-right: 3.8%;
     }
     .entry-utility {
-        padding: 1.625em 0;
+        padding: $spacing 0;
         ul {
             float: left;
             width: 50%;
@@ -160,13 +160,9 @@
             margin: 0 3.8% 0 0; }
         #third { margin: 0; }
     }
-    .archive,
-    .attachment,
-    .search {
-    }
     .navigation {
         overflow: hidden;
-        margin: 0 0 1.625em 0;
+        margin: 0 0 $spacing 0;
         .meta-nav { font-style: normal; }
     }
     .nav-previous { float: left; }
@@ -175,8 +171,9 @@
         text-align: right;
     }
     .content-column {
+        float: left;
         width: 45%;
-        margin: 0 0 1.625em;
+        margin: 0 0 $spacing;
     }
     .page-template-template-page-fullwidth-php #comments,
     .attachment-jpeg #comments,

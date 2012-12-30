@@ -1,12 +1,12 @@
 .entry-content {
     .wp-post-image {
         float: right;
-        margin: 0 0 1em 1.625em;
+        margin: 0 0 1em $spacing;
     }
     img {
         height: auto;
         max-width: 100%;
-        margin: 0 0 1.625em;
+        margin: 0 0 $spacing;
     }
 }
 .alignleft,
@@ -28,18 +28,21 @@ img.aligncenter {
 }
 .wp-caption {
     max-width: 100%;
-    margin-bottom: 1.625em;
+    margin-bottom: $spacing;
     text-align:center;
-    img { margin: 0; padding: 0; }
+    img {
+        margin: 0;
+        padding: 0;
+    }
 }
 .wp-caption-text {
     margin: 0;
-    padding: 1.625em 0;
+    padding: $spacing 0;
 }
 .gallery {
     display: block;
     margin: 0 auto;
-    padding: 0 0 1.625em;
+    padding: 0 0 $spacing;
     clear: both;
     overflow: hidden;
 }
@@ -60,9 +63,7 @@ img.aligncenter {
         border: none !important;
     }
 }
-.gallery-icon {
-    margin: 0 .25em;
-}
+.gallery-icon { margin: 0 .25em; }
 .gallery-caption { padding: .25em .25em 0; }
 .wp-smiley {
     max-height: 12px;
