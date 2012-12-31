@@ -5,7 +5,7 @@ Description: A child theme based on the Responsive Base child theme for the Them
 Author: Scott Nix
 Author URI: http://scottnix.com/
 Template: thematic
-Version: 0.4.0
+Version: 0.5.0
 Tags: thematic, child-theme, responsive, mobile-first, SASS
 */
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
@@ -230,34 +230,34 @@ textarea {
 }
 
 body {
-  background: #fefefe;
+  background: #f1f1f1;
 }
 
 h1, #blog-title {
-  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.2);
   margin: 0 0 0.5417em;
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
   font-size: 3em;
   line-height: 1.0833em;
   color: #3d3331;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 h2, .entry-title {
-  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.2);
   margin: 0 0 0.7222em;
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
   font-size: 2.25em;
   line-height: 1.4444em;
   color: #3d3331;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 h3 {
-  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.2);
   margin: 0 0 0.8667em;
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
   font-size: 1.875em;
   line-height: 1.7333em;
   color: #3d3331;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 h4, .widgettitle {
@@ -266,6 +266,7 @@ h4, .widgettitle {
   font-size: 1.5em;
   line-height: 1.0833em;
   color: #3d3331;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 h5 {
@@ -422,6 +423,10 @@ blockquote span {
   font-style: normal;
 }
 
+#wrapper {
+  background: url(images/bg-tiles.png);
+}
+
 #header {
   position: relative;
   z-index: 2;
@@ -467,7 +472,7 @@ blockquote span {
   *zoom: 1;
   width: 90%;
   margin: 0 auto 1.625em;
-  background-color: #010101;
+  background-color: #211b1a;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
 }
 #access:after {
@@ -486,8 +491,8 @@ blockquote span {
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
   padding: .65em;
-  background: #010101;
-  color: #fefefe;
+  background: #211b1a;
+  color: #f1f1f1;
 }
 .menu-button:hover {
   cursor: pointer;
@@ -505,7 +510,7 @@ blockquote span {
   height: 2px;
   width: 18px;
   margin-top: 2px;
-  background: #fefefe;
+  background: #f1f1f1;
   border-radius: 1px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
@@ -606,12 +611,7 @@ blockquote span {
 }
 
 #container {
-  width: 100%;
   margin: 0 0 1.625em;
-}
-
-#content {
-  width: 100%;
 }
 
 .page-title span span {
@@ -659,6 +659,12 @@ blockquote span {
   clear: both;
   font-size: 90%;
   color: #7f7f7f;
+}
+.entry-utility [class*="entypo-"]:before {
+  padding-right: 1em;
+  font-family: 'entypo', sans-serif;
+  font-size: 1.3em;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 .entry-utility:after {
   content: "";
@@ -941,7 +947,7 @@ input[type="submit"] {
   background-image: linear-gradient(#333333, #222222);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 2px 2px 3px rgba(0, 0, 0, 0.3);
   line-height: 18px;
-  color: #fefefe;
+  color: #f1f1f1;
   text-align: center;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
 }
@@ -1139,7 +1145,7 @@ img#wpstats {
 .flex-caption a {
   display: block;
   padding: 1em;
-  color: #fefefe;
+  color: #f1f1f1;
 }
 
 .ir {
@@ -1212,10 +1218,6 @@ img#wpstats {
     margin-right: 0;
   }
 
-  #wrapper {
-    background: url(images/bg-tiles.png);
-  }
-
   #branding,
   #access,
   #main,
@@ -1246,7 +1248,7 @@ img#wpstats {
   .sf-menu li {
     position: relative;
     float: left;
-    background: #010101;
+    background: #211b1a;
     border-bottom: none;
   }
   .sf-menu li:hover ul {
@@ -1261,7 +1263,7 @@ img#wpstats {
     display: block;
     position: relative;
     text-decoration: none;
-    color: #fefefe;
+    color: #f1f1f1;
     padding: 0.5em 0.75em;
   }
   .sf-menu li a:focus, .sf-menu li a:hover, .sf-menu li a:active {
@@ -1283,7 +1285,7 @@ img#wpstats {
   }
   .sf-menu .sub-menu li a, .sf-menu .children li a {
     padding: 0.5em 0.75em;
-    color: #010101;
+    color: #211b1a;
   }
   .sf-menu .sub-menu li a:hover, .sf-menu .children li a:hover {
     background: rgba(0, 0, 0, 0.1);
@@ -1321,7 +1323,6 @@ img#wpstats {
 
   #main {
     padding: 1.625em 2em 0;
-    background: #fefefe;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   }
 
