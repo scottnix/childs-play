@@ -98,10 +98,13 @@ function childtheme_script_manager() {
     wp_register_script('flexslider-js', get_stylesheet_directory_uri() . '/flexslider/jquery.flexslider-min.js', array('jquery'), false, true);
     // registers flexslider styles, local stylesheet path
     wp_register_style('flexslider-css', get_stylesheet_directory_uri() . '/flexslider/flexslider.css');
+    // registers weloveiconfonts.com icon font styles
+    wp_register_style('icon-fonts-css', 'http://weloveiconfonts.com/api/?family=entypo');
 
     // enqueue the scripts for use in theme
     wp_enqueue_script ('modernizr-js');
     wp_enqueue_script ('fitvids-js');
+    wp_enqueue_style ('icon-fonts-css');
 
         if ( is_front_page() ) {
             wp_enqueue_script ('flexslider-js');
@@ -331,25 +334,22 @@ function childtheme_override_postfooter() {
     $post_type = get_post_type();
     $post_type_obj = get_post_type_object($post_type);
 
-    // Check for "Page" post-type and logged in user to show edit link
-    if ( $post_type == 'page' && current_user_can('edit_posts') ) {
-        $postfooter = '';
-    // Display nothing for logged out users on a "Page" post-type
-    } elseif ( $post_type == 'page' ) {
+    // Display nothing for "Page" post-type
+    if ( $post_type == 'page' ) {
         $postfooter = '';
     // For post-types other than "Pages" press on
     } else {
         $postfooter = '<footer class="entry-utility">';
         $postfooter .= '<ul class="main-utilities">';
-        $postfooter .= '<li>' . thematic_postmeta_authorlink() . '</li>';
-        $postfooter .= '<li>' . thematic_postmeta_entrydate() . '</li>';
-        $postfooter .= '<li>' . thematic_postfooter_postcomments() . '</li>';
+        $postfooter .= '<li class="entypo-user">' . thematic_postmeta_authorlink() . '</li>';
+        $postfooter .= '<li class="entypo-calendar">' . thematic_postmeta_entrydate() . '</li>';
+        $postfooter .= '<li class="entypo-comment">' . thematic_postfooter_postcomments() . '</li>';
         $postfooter .= '</ul>';
         $postfooter .= '<ul class="sub-utilities">';
-        $postfooter .= '<li>' . thematic_postfooter_postcategory() . '</li>';
-        $postfooter .= '<li>' . thematic_postfooter_posttags() . '</li>';
+        $postfooter .= '<li class="entypo-folder">' . thematic_postfooter_postcategory() . '</li>';
+        $postfooter .= '<li class="entypo-tag">' . thematic_postfooter_posttags() . '</li>';
             if ( is_user_logged_in() ) {
-            $postfooter .= '<li>' . thematic_postfooter_posteditlink() . '</li>';
+                $postfooter .= '<li class="entypo-pencil">' . thematic_postfooter_posteditlink() . '</li>';
             }
         $postfooter .= '</ul>';
         $postfooter .= "\n\n\t\t\t\t\t</footer><!-- .entry-utility -->\n";
