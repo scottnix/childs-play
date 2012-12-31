@@ -13,7 +13,6 @@
             margin-right: 0;
         }
     }
-    #wrapper { background: url(images/bg-tiles.png); }
     #branding,
     #access,
     #main,
@@ -119,7 +118,6 @@
     }
     #main {
         padding: $spacing 2em 0;
-        background: $background-color;
         box-shadow: 0 0 8px $box-transparency;
     }
     #container {
