@@ -35,6 +35,7 @@ textarea {
     font: $body-font-defaults;
 }
 body { background: $background-color; }
+textarea { resize: vertical; }
 h1 {
     margin: 0 0 0.5417em;
     font-family: $header-font;
@@ -125,7 +126,6 @@ ins {
     border-bottom: 1px solid $accents-color;
     text-decoration: none;
 }
-textarea { resize: vertical; }
 caption { text-align: center; }
 table {
     margin: 0 0 $spacing;

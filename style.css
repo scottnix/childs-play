@@ -233,6 +233,10 @@ body {
   background: #f1f1f1;
 }
 
+textarea {
+  resize: vertical;
+}
+
 h1, #blog-title {
   margin: 0 0 0.5417em;
   font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
@@ -361,10 +365,6 @@ abbr, acronym {
 ins {
   border-bottom: 1px solid #da1113;
   text-decoration: none;
-}
-
-textarea {
-  resize: vertical;
 }
 
 caption {
@@ -1139,7 +1139,7 @@ img#wpstats {
 .flex-caption {
   width: 100%;
   padding: 0;
-  background: #010101;
+  background: #211b1a;
   font-size: 1em;
 }
 .flex-caption a {
