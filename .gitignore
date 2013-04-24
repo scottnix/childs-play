@@ -1,7 +1,1 @@
-
-#################
-## SASS/COMPASS
-#################
-
-*.rb
-.sass-cache/
+.sass-cache
