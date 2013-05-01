@@ -22,7 +22,11 @@ Tags: thematic, child-theme, responsive, mobile-first, SASS
 @import 'scss/normalize';
 
 // better box model - paulirish.com/2012/box-sizing-border-box-ftw/
-* { @include box-sizing(border-box); }
+*,
+*:before,
+*:after { 
+    @include box-sizing(border-box); 
+}
 
 // ==========================================================================
 // basic styles
