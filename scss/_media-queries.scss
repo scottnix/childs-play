@@ -30,8 +30,12 @@
             text-align: right;
         }
     }
-    .js .access-nav { display: block; }
-    .menu-button { display: none; }
+    .js .access-nav { 
+        display: block; 
+    }
+    .menu-button { 
+        display: none; 
+    }
     .sf-menu {
         li {
             position: relative;
@@ -45,24 +49,29 @@
                     z-index: 99;
                 }
             }
-            &.has-flyout:after { border-color: #fff transparent transparent; }
-
+            &.has-flyout:after { 
+                border-color: #fff transparent transparent; 
+            }
             a {
                display: block;
                 position: relative;
                 text-decoration: none;
                 color: $menu-link-color;
                 padding: 0.5em 0.75em;
-                &:focus, &:hover, &:active {
+                &:focus, 
+                &:hover, 
+                &:active {
                     color: $menu-link-hover;
                     padding: 0.5em 0.75em;
                     outline: 0;
                 }
-
             }
         }
-        > li.has-flyout a { padding-right: 1.75em; }
-        .sub-menu, .children {
+        > li.has-flyout a { 
+            padding-right: 1.75em; 
+        }
+        .sub-menu, 
+        .children {
             position: absolute;
             top: -999em;
             width: 10em;
@@ -93,7 +102,9 @@
                         }
                     }
                 }
-            &.has-flyout:after { border-color: #000 transparent transparent; }
+                &.has-flyout:after { 
+                    border-color: #000 transparent transparent; 
+                }
             }
         }
         .current-menu-item a,
@@ -105,12 +116,16 @@
         .current_page_parent a {
            // nothing yet...
         }
-        li:hover li ul { top: -999em; }
+        li:hover li ul { 
+            top: -999em; 
+        }
         li li:hover ul {
             left: 10em;
             top: 0;
         }
-        li li:hover li ul { top: -999em; }
+        li li:hover li ul { 
+            top: -999em; 
+        }
         li li li:hover ul {
             left: 10em;
             top: 0;
@@ -144,7 +159,9 @@
     #primary,
     #secondary {
         section,
-        > ul { padding: 0 1em; }
+        > ul { 
+            padding: 0 1em; 
+        }
     }
     .sub-wrapper {
         width: 90%;
@@ -155,15 +172,22 @@
         .aside {
             float: left;
             width: 30.8%;
-            margin: 0 3.8% 0 0; }
-        #third { margin: 0; }
+            margin: 0 3.8% 0 0; 
+        }
+        #third { 
+            margin: 0; 
+        }
     }
     .navigation {
         overflow: hidden;
         margin: 0 0 $spacing 0;
-        .meta-nav { font-style: normal; }
+        .meta-nav { 
+            font-style: normal; 
+        }
     }
-    .nav-previous { float: left; }
+    .nav-previous { 
+        float: left; 
+    }
     .nav-next {
         float: right;
         text-align: right;
@@ -178,5 +202,7 @@
     .attachment-png #comments {
         width: 65.4%;
     }
-    .flexslider { margin: 0 0 3.25em; }
+    .flexslider { 
+        margin: 0 0 3.25em; 
+    }
 }
