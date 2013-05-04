@@ -1,86 +1,82 @@
 #comments {
     clear:both;
-    ol {
+    ol,
+    ul {
         margin: 0;
         padding: 0;
         list-style: none;
+    }
+    .edit-link {
+        display: inline;
     }
 }
 #comments-list {
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        li {
-            margin: 0 0 $spacing;
-            border: none;
-            background: rgba(0,0,0,.05);
-        }
-    }
     ol {
         margin: 0 0 $spacing;
-        border: 1px solid $accents-color;
         border-bottom: none;
     }
     li {
-        position: relative;
-        padding: $spacing 1.5em 0;
-        border-bottom: 1px solid $accents-color;
-        background: #fafafa;
-        .avatar {
-            position:absolute;
-            top: $spacing;
-            left: 1.5em;
-            width: 2.5em;
-            height: 2.5em;
-        }
-        &.bypostauthor { background: #ffffcc; }
-    }
-    .thread-odd { background: #f1f1f1; }
-    .comment-author {
-        font-weight: bold;
-        padding: 0 0 0 3em;
-    }
-    .comment-meta { padding:0 0 0.5em 3em; }
-    #respond {
         margin: 0 0 $spacing;
-        padding: $spacing 1.5em;
+        padding-top: $spacing;
+        clear: both;
+        border: none;
+        li {
+            padding-top: 0;
+        }
+    }
+    > li {
         border-bottom: 1px solid $accents-color;
     }
-    ul #respond {
-        margin: 0;
-        border: 1px solid $accents-color;
+    .children {
+       padding: 0;
     }
+}
+.comment { }
+.bypostauthor { }
+.avatar {
+    float: left;
+    margin: 0 $spacing/2 $spacing/2 0;
+    border: 5px solid $transparency;
+}
+.comment-author {
+    font-weight: bold;
+}
+.comment-meta { }
+.comment-content {
+    clear: both;
 }
 .comment-reply-link {
-    padding: 0 0 $spacing;
+    padding: 0 0 $spacing/2;
     text-align: right;
+    a {
+        padding: .5em;
+        font-size: 80%;
+    }
+}
+#pings-list-wrapper {
+    padding-bottom: $spacing;
 }
 #trackbacks-list .comment-content {
-    position: absolute;
-    left: -9999px;
+    @extend .visuallyhidden;
 }
-#respond {
+#reply-title {
     position: relative;
-    margin-bottom: $spacing;
 }
 #cancel-comment-reply-link {
-    position: absolute;
-    top: 0;
-    right: 0;
+    display: block;
+    font-weight: normal;
 }
 .form-section {
     input {
         width: 100%;
         margin: 0 0 $spacing;
     }
-    textarea { width: 100%; }
+    textarea {
+        width: 100%;
+    }
 }
 #form-allowed-tags {
-    font-size: 90%;
-    color: $helper-text;
-    p { margin: 0; }
-    span { font-style: italic; }
+    display:none;
 }
 .form-submit {
     padding: $spacing 0 0;
