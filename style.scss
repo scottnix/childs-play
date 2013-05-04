@@ -87,8 +87,7 @@ h6 {
     color: $header-color;
 }
 a {
-    @include transition-duration(.2s);
-    @include transition-timing-function(ease-in-out);
+    @include transition(color .3s ease-in-out, background-color .3s ease-in-out);
     color: $link-color;
     text-decoration: none;
     &:visited { color: $link-color; }
@@ -220,8 +219,7 @@ blockquote {
     box-shadow: 0 0 8px 0 $box-transparency;
 }
 .menu-button {
-    @include transition-duration(.2s);
-    @include transition-timing-function(ease-in-out);
+    @include transition(all .3s ease-in-out);
     padding: .65em;
     background: $menu-background;
     color: $menu-link-color;
