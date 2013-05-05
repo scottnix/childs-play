@@ -346,7 +346,8 @@ dd {
   margin: 0 0 1.625em;
 }
 
-abbr, acronym {
+abbr,
+acronym {
   cursor: help;
 }
 
@@ -470,23 +471,23 @@ blockquote span {
 }
 
 .menu-button {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
   padding: .65em;
   background: #211b1a;
   color: #f1f1f1;
 }
 .menu-button:hover {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
   color: #da1113;
 }
-.menu-button:hover .menu-title:after {
-  content: "+";
-  padding-left: .5em;
-}
 .menu-button:hover .icon-bar {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   background: #da1113;
 }
 .menu-button .icon-bar {
@@ -501,14 +502,6 @@ blockquote span {
 
 .nav-open {
   color: #da1113;
-}
-.nav-open .menu-title:after {
-  content: "-";
-  padding-left: .5em;
-}
-.nav-open:hover .menu-title:after {
-  content: "-";
-  padding-left: .5em;
 }
 .nav-open .icon-bar {
   background: #da1113;

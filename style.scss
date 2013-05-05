@@ -38,8 +38,12 @@ textarea {
     color: $text-color;
     font: $body-font-defaults;
 }
-body { background: $background-color; }
-textarea { resize: vertical; }
+body { 
+    background: $background-color; 
+}
+textarea { 
+    resize: vertical; 
+}
 h1 {
     margin: 0 0 0.5417em;
     font-family: $header-font;
@@ -90,9 +94,15 @@ a {
     @include transition(color .3s ease-in-out, background-color .3s ease-in-out);
     color: $link-color;
     text-decoration: none;
-    &:visited { color: $link-color; }
-    &:hover { color: $link-hover; }
-    &:focus { color: $link-focus; }
+    &:visited { 
+        color: $link-color; 
+    }
+    &:hover { 
+        color: $link-hover; 
+    }
+    &:focus { 
+        color: $link-focus; 
+    }
 }
 p,
 pre,
@@ -109,9 +119,13 @@ ul {
 ol {
     margin: 0 0 $spacing;
     list-style-type: decimal;
-    ol { list-style: upper-alpha;
-        ol { list-style: lower-roman;
-            ol { list-style: lower-alpha; }
+    ol { 
+        list-style: upper-alpha;
+        ol { 
+            list-style: lower-roman;
+            ol { 
+                list-style: lower-alpha; 
+            }
         }
     }
 }
@@ -121,22 +135,35 @@ ol ul,
 ol ol {
     margin-bottom: 0;
 }
-dl { margin: 0 1em; }
-dt { font-weight: bold; }
-dd { margin: 0 0 $spacing; }
-abbr, acronym { cursor: help; }
+dl { 
+    margin: 0 1em; 
+}
+dt { 
+    font-weight: bold; 
+}
+dd { 
+    margin: 0 0 $spacing; 
+}
+abbr, 
+acronym { 
+    cursor: help; 
+}
 ins {
     border-bottom: 1px solid $accents-color;
     text-decoration: none;
 }
-caption { text-align: center; }
+caption { 
+    text-align: center; 
+}
 table {
     margin: 0 0 $spacing;
     border: 1px solid $accents-color;
     border-width: 1px 1px 0;
     text-align: left;
 }
-tr { border-bottom: 1px solid $accents-color; }
+tr { 
+    border-bottom: 1px solid $accents-color; 
+}
 th,
 td {
     padding: .7em 1.25em;
@@ -178,7 +205,9 @@ blockquote {
 // content styles
 // ==========================================================================
 
-#wrapper { background: url(images/bg-tiles.png); }
+#wrapper { 
+    background: url(images/bg-tiles.png); 
+}
 #header {
     position: relative;
     z-index: 2;
@@ -193,8 +222,11 @@ blockquote {
     @extend h1;
     margin: 0;
     padding: 0;
-    a { color: $header-color;
-        &:hover { color: $link-hover; }
+    a { 
+        color: $header-color;
+        &:hover { 
+            color: $link-hover; 
+        }
     }
 }
 #blog-description {
@@ -204,7 +236,9 @@ blockquote {
 }
 #header-widget {
     margin: $spacing 0 0;
-    .widgettitle { display: none; }
+    .widgettitle { 
+        display: none; 
+    }
     ul,
     address,
     form {
@@ -219,18 +253,17 @@ blockquote {
     box-shadow: 0 0 8px 0 $box-transparency;
 }
 .menu-button {
-    @include transition(all .3s ease-in-out);
     padding: .65em;
     background: $menu-background;
     color: $menu-link-color;
     &:hover {
+        @include transition(all .3s ease-in-out);
         cursor: pointer;
         color: $accents-color;
-        .menu-title:after {
-            content: "+";
-            padding-left: .5em;
+        .icon-bar { 
+            @include transition(all .3s ease-in-out);
+            background: $accents-color; 
         }
-        .icon-bar { background: $accents-color; }
     }
     .icon-bar {
         display: block;
@@ -244,20 +277,14 @@ blockquote {
 }
 .nav-open {
     color: $accents-color;
-    .menu-title:after {
-        content: "-";
-        padding-left: .5em;
+    .icon-bar { 
+        background: $accents-color; 
     }
-    &:hover {
-        .menu-title:after {
-            content: "-";
-            padding-left: .5em;
-        }
-    }
-    .icon-bar { background: $accents-color; }
 }
 .access-nav {
-    .js & { display: none; }
+    .js & { 
+        display: none; 
+    }
     ul {
         margin: 0;
         padding: 0;
@@ -269,7 +296,9 @@ blockquote {
         display: block;
         border-bottom: 1px solid #f1f1f1;
         background: #ddd;
-        &:last-child { border: none; }
+        &:last-child { 
+            border: none; 
+        }
         a {
             display: block;
             padding: .5em .35em .5em 1em;
@@ -335,11 +364,15 @@ blockquote {
 .page-title {
     @extend h6;
     span {
-        span { font-style: italic; }
+        span { 
+            font-style: italic; 
+        }
     }
     .meta-nav { font-style: normal; }
 }
-.hentry { margin: 0 0 $spacing; }
+.hentry { 
+    margin: 0 0 $spacing; 
+}
 .sticky {
     padding: $spacing;
     background: $transparency;
@@ -357,7 +390,9 @@ blockquote {
     a {
         border-bottom: 1px dotted $helper-link;
         color: $helper-link;
-        &:hover { color: $link-hover; }
+        &:hover { 
+            color: $link-hover; 
+        }
     }
     abbr {
         border: none;
@@ -378,7 +413,9 @@ blockquote {
     a {
         border-bottom: 1px dotted $helper-link;
         color: $helper-link;
-        &:hover { color: $link-hover; }
+        &:hover { 
+            color: $link-hover; 
+        }
     }
     ul {
         margin: 0;
@@ -435,9 +472,13 @@ blockquote {
         }
     }
     a,
-    span { margin-right: 0.5em; }
+    span { 
+        margin-right: 0.5em; 
+    }
 }
-.paginated-comments-links { margin-top: $spacing; }
+.paginated-comments-links { 
+    margin-top: $spacing; 
+}
 .button,
 input[type="submit"] {
     position: relative;
@@ -468,7 +509,7 @@ input[type="submit"]:hover {
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
         0 1px 0 rgba(255, 255, 255, 0.075);
-    }
+}
 
 // asides, sidebars & widget-ready areas
 // ==========================================================================
@@ -480,13 +521,22 @@ input[type="submit"]:hover {
     section {
         list-style: none;
         padding: 0;
-        ul { margin: 0 0 $spacing 1em;
-            li { padding: 1px 0; }
-            ul { margin-bottom: 0; }
+        ul { 
+            margin: 0 0 $spacing 1em;
+            li { 
+                padding: 1px 0; 
+            }
+            ul { 
+                margin-bottom: 0; 
+            }
         }
     }
-    img { max-width: 100%; }
-    table { border: none; }
+    img { 
+        max-width: 100%; 
+    }
+    table { 
+        border: none; 
+    }
     thead,
     tbody {
         border: 1px solid $accents-color;
@@ -494,25 +544,43 @@ input[type="submit"]:hover {
     th,
     td {
         border-right: 1px solid $accents-color;
-        padding: .15em .5em; }
-    tfoot {
-        tr { border: none; }
-        td { border-color: transparent; }
+        padding: .15em .5em; 
     }
-    #searchform input { width: 100%; }
+    tfoot {
+        tr { 
+            border: none; 
+        }
+        td { 
+            border-color: transparent; 
+        }
+    }
+    #searchform input { 
+        width: 100%; 
+    }
 }
-.widget_tag_cloud { margin: 0 0 $spacing; }
-#searchsubmit { display: none; }
-#primary { margin-bottom: $spacing; }
+.widget_tag_cloud { 
+    margin: 0 0 $spacing; 
+}
+#searchsubmit { 
+    display: none; 
+}
+#primary { 
+    margin-bottom: $spacing; 
+}
 .widgettitle {
     @extend h4;
     border-bottom: 1px solid $accents-color;
     padding:.5em 0;
-    a { color: $header-color;
-        &:hover { color: $link-hover; }
+    a { 
+        color: $header-color;
+        &:hover { 
+            color: $link-hover; 
+        }
     }
 }
-#content .aside { margin: 0 0 $spacing; }
+#content .aside { 
+    margin: 0 0 $spacing; 
+}
 #footer {
     margin-top: $spacing;
     clear: both;
@@ -557,7 +625,9 @@ input[type="submit"]:hover {
         width: 100%;
         margin: 0;
     }
-    .main-aside { display: none; }
+    .main-aside { 
+        display: none; 
+    }
 }
 
 // internet explorer (old IE, 6, 7 and 8 fixes)
