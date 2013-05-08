@@ -333,6 +333,7 @@ function childtheme_override_postheader_postmeta() {
 function childtheme_override_postfooter() {
     $post_type = get_post_type();
     $post_type_obj = get_post_type_object($post_type);
+    $tagsection = get_the_tags();
 
     // Display nothing for "Page" post-type
     if ( $post_type == 'page' ) {
@@ -347,7 +348,9 @@ function childtheme_override_postfooter() {
         $postfooter .= '</ul>';
         $postfooter .= '<ul class="sub-utilities">';
         $postfooter .= '<li class="entypo-folder">' . thematic_postfooter_postcategory() . '</li>';
+            if ( $tagsection ) {
         $postfooter .= '<li class="entypo-tag">' . thematic_postfooter_posttags() . '</li>';
+            }
             if ( is_user_logged_in() ) {
                 $postfooter .= '<li class="entypo-pencil">' . thematic_postfooter_posteditlink() . '</li>';
             }
@@ -414,7 +417,7 @@ function remove_width_attribute( $html ) {
    return $html;
 }
 
-// post thumbnail sizing for the flexslider, best if 750px by 425 px to look decent.
+// post thumbnail sizing for the flexslider, best if 750px by 425px to look decent.
 add_image_size( 'featured-slider', 750, 425 ); // width and height
 
 // add flexslider to blog home if it has sticky posts
