@@ -361,7 +361,7 @@ function childtheme_override_postfooter() {
     echo apply_filters( 'thematic_postfooter', $postfooter ); // Filter to override default post footer
 }
 
-// remove unneeded code from posttags
+// remove unneeded code from postcategory
 function childtheme_override_postfooter_postcategory() {
     $postcategory = "\n\n\t\t\t\t\t\t" . '<span class="cat-links">';
     if (is_single()) {
