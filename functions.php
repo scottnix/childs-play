@@ -355,44 +355,45 @@ function childtheme_override_postfooter() {
                 $postfooter .= '<li class="entypo-pencil">' . thematic_postfooter_posteditlink() . '</li>';
             }
         $postfooter .= '</ul>';
-        $postfooter .= "\n\n\t\t\t\t\t</footer><!-- .entry-utility -->\n";
+        $postfooter .= "</footer><!-- .entry-utility -->\n";
     }
     // Put it on the screen
     echo apply_filters( 'thematic_postfooter', $postfooter ); // Filter to override default post footer
 }
 
+function childtheme_postmeta_entrydate($entrydate) {
+    $entrydate = '<span class="meta-prep meta-prep-entry-date">' . __('', 'thematic') . '</span>';
+    $entrydate .= '<span class="entry-date">';
+    $entrydate .= get_the_time( thematic_time_display() );
+    $entrydate .= '</span>';
+    return $entrydate;
+}
+add_filter('thematic_postmeta_entrydate', 'childtheme_postmeta_entrydate');
+
 // remove unneeded code from postcategory
 function childtheme_override_postfooter_postcategory() {
-    $postcategory = "\n\n\t\t\t\t\t\t" . '<span class="cat-links">';
-    if (is_single()) {
-        $postcategory .= __('Categories ', 'thematic') . get_the_category_list(', ');
-        $postcategory .= '</span>';
-        $posttags = get_the_tags();
-        if ( !$posttags ) {
-            $postcategory .= '';
-        }
-    } elseif ( is_category() && $cats_meow = thematic_cats_meow(', ') ) {
-        $postcategory .= __('Also posted in ', 'thematic') . $cats_meow;
-        $postcategory .= '</span>' . "\n\n\t\t\t\t\t\t";
+    $postcategory = '<span class="cat-links">';
+    if ( is_category() && $cats_meow = thematic_cats_meow(', ') ) {
+        $postcategory .= __('<span class="meta-prep meta-prep-category">Also posted in</span> ', 'thematic') . $cats_meow;
     } else {
-        $postcategory .= __('Posted in ', 'thematic') . get_the_category_list(', ');
-        $postcategory .= '</span>' . "\n\n\t\t\t\t\t\t";
+        $postcategory .= __('<span class="meta-prep meta-prep-category">Posted in</span> ', 'thematic') . get_the_category_list(', ');
     }
+    $postcategory .= '</span>';
     return apply_filters('thematic_postfooter_postcategory',$postcategory);
 }
 
 // remove unneeded code from posttags
 function childtheme_override_postfooter_posttags() {
     if ( is_single() && !is_object_in_taxonomy( get_post_type(), 'category' ) ) {
-        $tagtext = __('Tagged', 'thematic');
+        $tagtext = __('<span class="meta-prep meta-prep-tags">Tagged</span>', 'thematic');
         $posttags = get_the_tag_list("<span class=\"tag-links\"> $tagtext ",', ','</span> ');
     } elseif ( is_single() ) {
-        $tagtext = __('Tagged', 'thematic');
+        $tagtext = __('<span class="meta-prep meta-prep-tags">Tagged</span>', 'thematic');
         $posttags = get_the_tag_list("<span class=\"tag-links\"> $tagtext ",', ','</span> ');
     } elseif ( is_tag() && $tag_ur_it = thematic_tag_ur_it(', ') ) {
-        $posttags = '<span class="tag-links">' . __(' Also tagged ', 'thematic') . $tag_ur_it . '</span>' . "\n\n\t\t\t\t\t\t";
+        $posttags = '<span class="tag-links">' . __('<span class="meta-prep meta-prep-tags">Also tagged</span> ', 'thematic') . $tag_ur_it . '</span>' . "\n\n\t\t\t\t\t\t";
     } else {
-        $tagtext = __('Tagged', 'thematic');
+        $tagtext = __('<span class="meta-prep meta-prep-tags">Tagged</span>', 'thematic');
         $posttags = get_the_tag_list("<span class=\"tag-links\"> $tagtext ",', ','</span>' . "\n\n\t\t\t\t\t\t");
     }
     return apply_filters('thematic_postfooter_posttags',$posttags);
