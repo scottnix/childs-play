@@ -373,7 +373,7 @@ tr {
 
 th,
 td {
-  padding: 0.7em 1.25em;
+  padding: .7em 1.25em;
   vertical-align: top;
 }
 
@@ -526,7 +526,7 @@ blockquote span {
 }
 .sf-menu li a {
   display: block;
-  padding: 0.5em 0.35em 0.5em 1em;
+  padding: .5em .35em .5em 1em;
   color: #3d3331;
 }
 .sf-menu li a:hover {
@@ -534,7 +534,7 @@ blockquote span {
   color: #da1113;
 }
 .sf-menu .has-flyout:after {
-  border-color: black transparent transparent;
+  border-color: #000 transparent transparent;
   border-image: none;
   border-style: solid;
   border-width: 5px;
@@ -639,7 +639,7 @@ blockquote span {
 }
 .entry-utility [class*="entypo-"]:before {
   padding-right: 1em;
-  font-family: "entypo", sans-serif;
+  font-family: 'entypo', sans-serif;
   font-size: 1.3em;
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
@@ -758,11 +758,11 @@ img.aligncenter {
 }
 
 .gallery-icon {
-  margin: 0 0.25em;
+  margin: 0 .25em;
 }
 
 .gallery-caption {
-  padding: 0.25em 0.25em 0;
+  padding: .25em .25em 0;
 }
 
 .wp-smiley {
@@ -893,9 +893,8 @@ input[type="submit"] {
   vertical-align: middle;
   cursor: pointer;
   border: 1px solid #cccccc;
-  border-color: #222222 #222222 black;
+  border-color: #222222 #222222 #000000;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
   background-color: #2c2c2c;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #333333), color-stop(100%, #222222));
   background-image: -webkit-linear-gradient(#333333, #222222);
@@ -950,7 +949,7 @@ input[type="submit"]:hover {
 .aside th,
 .aside td {
   border-right: 1px solid #da1113;
-  padding: 0.15em 0.5em;
+  padding: .15em .5em;
 }
 .aside tfoot tr {
   border: none;
@@ -976,7 +975,7 @@ input[type="submit"]:hover {
 
 .widgettitle {
   border-bottom: 1px solid #da1113;
-  padding: 0.5em 0;
+  padding: .5em 0;
 }
 .widgettitle a {
   color: #3d3331;
@@ -1217,7 +1216,7 @@ img#wpstats {
     z-index: 99;
   }
   .sf-menu li.has-flyout:after {
-    border-color: white transparent transparent;
+    border-color: #fff transparent transparent;
   }
   .sf-menu li a {
     display: block;
@@ -1273,7 +1272,7 @@ img#wpstats {
   }
   .sf-menu .sub-menu li.has-flyout:after,
   .sf-menu .children li.has-flyout:after {
-    border-color: black transparent transparent;
+    border-color: #000 transparent transparent;
   }
   .sf-menu li:hover li ul {
     top: -999em;
@@ -1380,7 +1379,7 @@ img#wpstats {
 @media print {
   * {
     background: transparent !important;
-    color: black !important;
+    color: #000 !important;
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -1406,7 +1405,7 @@ img#wpstats {
 
   pre,
   blockquote {
-    border: 1px solid #999999;
+    border: 1px solid #999;
     page-break-inside: avoid;
   }
 
