@@ -225,6 +225,15 @@ add_action('thematic_child_init', 'childtheme_register_menus');
 
 
 
+// remove user agent sniffing from thematic theme
+// this is what applies classes to the browser type and version body classes
+function childtheme_show_bc_browser() {
+    return FALSE;
+}
+add_filter('thematic_show_bc_browser', 'childtheme_show_bc_browser');
+
+
+
 // had to add .title-wrap div around the titles, mostly for correct scaling on em paddings.
 // also beefed up to add more robust style options with spans, which all around gives you tons of title styling options
 function childtheme_override_page_title() {
