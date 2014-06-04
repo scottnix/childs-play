@@ -179,16 +179,10 @@ add_filter('thematic_widgetized_areas', 'childtheme_hide_areas');
 
 // register two additional custom menu slots
 function childtheme_register_menus() {
-    if ( function_exists( 'register_nav_menu' )) {
-        register_nav_menu( 'secondary-menu', 'Secondary Menu' );
-        register_nav_menu( 'tertiary-menu', 'Tertiary Menu' );
-    }
+    register_nav_menu( 'secondary-menu', 'Secondary Menu' );
+    register_nav_menu( 'tertiary-menu', 'Tertiary Menu' );
 }
 add_action('thematic_child_init', 'childtheme_register_menus');
-
-
-
-
 
 
 
