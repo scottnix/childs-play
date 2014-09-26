@@ -1,8 +1,21 @@
 <?php
 
 //
-//  Child's Play (a child theme for Thematic) Functions
+//  Child's Play (a child theme for Thematic 2.0+) Functions
 //
+
+
+/**
+ * Force Thematic HTML5
+ *
+ * New Thematic feature that allows the child theme control of the HTML mode. This was previously
+ * controlled from inside the WordPress Admin.
+ *
+ * https://github.com/ThematicTheme/Thematic/pull/113
+ *
+ */
+
+add_theme_support( 'thematic_html5' );
 
 
 
@@ -69,7 +82,7 @@ function childtheme_script_manager() {
     wp_enqueue_script ('fitvids-js');
     wp_enqueue_style ('icon-fonts-css');
 
-        if ( is_front_page() ) {
+        if ( is_home() ) {
             wp_enqueue_script ('flexslider-js');
             wp_enqueue_style ('flexslider-css');
         }
